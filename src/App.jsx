@@ -377,7 +377,7 @@ function Section({ id, eyebrow, title, children }) {
       className="py-10 sm:py-12"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: true, amount: 0.1 }}
       variants={fadeIn}
     >
       <p className="text-sm uppercase tracking-[0.35em] text-gray-500">
@@ -410,7 +410,7 @@ function ProjectCard({ project, index = 0, compact = false }) {
         visible: {
           opacity: 1,
           y: 0,
-          transition: { duration: 0.5, delay: index * 0.15, ease: 'easeOut' },
+          transition: { duration: 0.5, delay: index * 0.05, ease: 'easeOut' },
         },
       }}
     >
@@ -548,7 +548,7 @@ function SkillsSection() {
 function ProjectsHighlight() {
   return (
     <Section id="projects" eyebrow="Selected Work" title="Projects & Experiments">
-      <div className="relative pl-8">
+      <div className="relative pl-0 md:pl-8">
         <span className="absolute left-0 top-0 hidden h-full w-px bg-gradient-to-b from-[#64ffda] via-emerald-300/40 to-transparent sm:block" />
         <div className="space-y-10">
           {featuredProjects.map((project, index) => (
