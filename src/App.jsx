@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
-import { Link, Route, Routes, useLocation, useParams } from 'react-router-dom'
+import { useEffect, useRef } from 'react'
+import { Link, Route, Routes, useParams } from 'react-router-dom'
 import { motion as Motion } from 'framer-motion'
 import cvFile from './assets/My_CV.pdf'
 import nlpCertificateImage from './assets/nlpcertificate.png'
@@ -769,73 +769,28 @@ function ProjectDetailPage() {
 
 function NotFoundPage() {
   return (
-    <Motion.section className="relative mt-6 overflow-hidden rounded-3xl border border-white/5 bg-white/5 p-8 text-gray-200 shadow-[0_25px_80px_rgba(100,255,218,0.05)]" initial="hidden" animate="visible" variants={fadeIn}>
-      <div className="absolute inset-0 opacity-20">
-
-      </div>
-      <div className="relative grid gap-10 lg:grid-cols-[1.2fr,0.8fr]">
-        <div>
-          <p className="text-sm uppercase tracking-[0.35em] text-gray-400">Not Found</p>
-          <h1 className="mt-4 text-4xl font-semibold text-white sm:text-5xl">404</h1>
-          <p className="mt-4 text-lg text-gray-200">
-            The page you were looking for drifted off the roadmap. Let’s guide you back to the most valuable content.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3 text-sm">
-            <Link
-              to="/"
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#64ffda]/10 px-5 py-2 font-semibold text-[#64ffda] transition hover:-translate-y-0.5 hover:bg-[#64ffda]/20"
-            >
-              Back to homepage
-              <span aria-hidden="true">↺</span>
-            </Link>
-            <Link
-              to="/projects"
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-5 py-2 font-semibold text-white transition hover:-translate-y-0.5 hover:border-[#64ffda] hover:text-[#64ffda]"
-            >
-              Browse archive
-              <span aria-hidden="true">→</span>
-            </Link>
-          </div>
-        </div>
-        <div className="rounded-2xl border border-white/10 bg-black/30 p-6 backdrop-blur">
-          <p className="text-xs uppercase tracking-[0.3em] text-gray-400">Quick Map</p>
-          <div className="mt-6 space-y-4 text-sm">
-            <div className="flex items-center gap-4">
-              <div className="h-12 w-12 rounded-2xl bg-white/10 text-center text-2xl font-bold text-[#64ffda] leading-[3rem]">AI</div>
-              <div>
-                <p className="font-semibold text-white">AI Case Studies</p>
-                <p className="text-gray-400">Deep learning, LLM, and RAG builds.</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="h-12 w-12 rounded-2xl bg-white/10 text-center text-2xl font-bold text-[#64ffda] leading-[3rem]">UX</div>
-              <div>
-                <p className="font-semibold text-white">Design Systems</p>
-                <p className="text-gray-400">Interfaces crafted for clarity.</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="h-12 w-12 rounded-2xl bg-white/10 text-center text-2xl font-bold text-[#64ffda] leading-[3rem]">CV</div>
-              <div>
-                <p className="font-semibold text-white">Get the Resume</p>
-                <p className="text-gray-400">Download the full PDF profile.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+    <Motion.section className="py-20" initial="hidden" animate="visible" variants={fadeIn}>
+      <p className="text-sm uppercase tracking-[0.35em] text-gray-500">Not Found</p>
+      <h1 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">This page drifted off.</h1>
+      <p className="mt-4 max-w-xl text-gray-400">
+        The URL you entered doesn’t exist. Head back to the homepage or explore the project archive.
+      </p>
+      <div className="mt-8 flex flex-wrap gap-3 text-sm">
+        <Link
+          to="/"
+          className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-gray-200 transition hover:-translate-y-0.5 hover:border-[#64ffda] hover:text-[#64ffda]"
+        >
+          ← Back home
+        </Link>
+        <Link
+          to="/projects"
+          className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-gray-200 transition hover:-translate-y-0.5 hover:border-[#64ffda] hover:text-[#64ffda]"
+        >
+          Browse projects
+        </Link>
       </div>
     </Motion.section>
   )
-}
-
-function ScrollToTop() {
-  const { pathname } = useLocation()
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }, [pathname])
-
-  return null
 }
 
 function HomePage() {
@@ -894,7 +849,6 @@ function App() {
     <div className="min-h-screen text-gray-100" style={{ backgroundColor: 'var(--page-bg)' }}>
       <div ref={glowRef} className="cursor-glow" aria-hidden="true" />
       <div className="mx-auto flex min-h-screen max-w-3xl flex-col px-5 pb-16 pt-10 sm:px-6 lg:px-0">
-        <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/projects" element={<ProjectsPage />} />
