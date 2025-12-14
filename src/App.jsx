@@ -849,14 +849,13 @@ function App() {
     <div className="min-h-screen text-gray-100" style={{ backgroundColor: 'var(--page-bg)' }}>
       <div ref={glowRef} className="cursor-glow" aria-hidden="true" />
       <div className="mx-auto flex min-h-screen max-w-3xl flex-col px-5 pb-16 pt-10 sm:px-6 lg:px-0">
-        <ScrollToTop />
+        <ScrollToTop />  {/* for scroll to above */}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/projects/:slug" element={<ProjectDetailPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-        
         <SiteFooter />
       </div>
     </div>
