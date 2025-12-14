@@ -4,7 +4,7 @@ import { motion as Motion } from 'framer-motion'
 import cvFile from './assets/My_CV.pdf'
 import nlpCertificateImage from './assets/nlpcertificate.png'
 import dataScienceCertificate from './assets/datascience.pdf'
-
+import ScrollToTop from './scrollToTop.jsx'; 
 const headerLinks = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/s-shahzaib' },
   { label: 'GitHub', href: 'https://github.com/Shahzaib30' },
@@ -849,12 +849,14 @@ function App() {
     <div className="min-h-screen text-gray-100" style={{ backgroundColor: 'var(--page-bg)' }}>
       <div ref={glowRef} className="cursor-glow" aria-hidden="true" />
       <div className="mx-auto flex min-h-screen max-w-3xl flex-col px-5 pb-16 pt-10 sm:px-6 lg:px-0">
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/projects/:slug" element={<ProjectDetailPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
+        
         <SiteFooter />
       </div>
     </div>
