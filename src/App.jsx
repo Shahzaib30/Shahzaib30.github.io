@@ -10,7 +10,6 @@ const headerLinks = [
   { label: 'GitHub', href: 'https://github.com/Shahzaib30' },
   { label: 'Upwork', href: 'https://www.upwork.com/freelancers/~01774fb1bf81238658' },
   { label: 'Kaggle', href: 'https://www.kaggle.com/shahzaib2222' },
-  { label: 'Portfolio', href: 'http://www.shahzaibshafique.me' },
   { label: 'Email', href: 'mailto:shahdesigner30@gmail.com' },
 ]
 
