@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { Link, Route, Routes, useParams } from 'react-router-dom'
 import { motion as Motion } from 'framer-motion'
-import cvFile from './assets/My_CV.pdf'
+import cvFile from './assets/Shahzaib_AI-Engineer.pdf'
 import nlpCertificateImage from './assets/nlpcertificate.png'
 import dataScienceCertificate from './assets/datascience.pdf'
 import ScrollToTop from './scrollToTop.jsx'; 
