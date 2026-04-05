@@ -5,10 +5,13 @@ import cvFile from './assets/Shahzaib-Shafique_AI-Engineer.pdf'
 import nlpCertificateImage from './assets/nlpcertificate.png'
 import dataScienceCertificate from './assets/datascience.pdf'
 import ScrollToTop from './scrollToTop.jsx'; 
+
 const headerLinks = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/s-shahzaib' },
   { label: 'GitHub', href: 'https://github.com/Shahzaib30' },
   { label: 'Upwork', href: 'https://www.upwork.com/freelancers/~01774fb1bf81238658' },
+  { label: 'Fiverr', href: 'https://www.fiverr.com/s/KeQKyQV' },
+  { label: 'LeetCode', href: 'https://leetcode.com/u/shahdesigner30/' },
   { label: 'Kaggle', href: 'https://www.kaggle.com/shahzaib2222' },
   { label: 'Email', href: 'mailto:shahdesigner30@gmail.com' },
 ]
@@ -22,20 +25,24 @@ const skills = [
     title: 'Frameworks & Libraries',
     items: [
       'PyTorch',
-      'TensorFlow',
-      'Scikit-learn',
-      'LangChain',
-      'LlamaIndex',
-      'Hugging Face',
-      'NLTK',
+      'Flaske',
       'FastAPI',
-      'Flask',
+      'React.js',
+      'Next.js',
+      'LangChain',
+      'Hugging Face',
+      'nnUNet',
+      'Scikit-learn',
+      'Numpy & Pandas',
     ],
   },
   {
     title: 'AI Techniques',
     items: [
+      'Generative AI & LLMs',
       'RAG',
+      'Deep Learning & Neural Networks',
+      '3D Image Segmentation- MONAI & nnUNet',
       'Fine-tuning (LoRA)',
       'Embeddings',
       'Vector Databases',
@@ -46,32 +53,26 @@ const skills = [
   {
     title: 'Tools',
     items: [
+      'Git & GitHub',
       'Docker',
-      'Git',
-      'Linux',
-      'VS Code',
-      'Jupyter Notebook',
-      'Google Colab',
-      'Anaconda',
-      'Postman',
-      'GitHub Actions',
-      'MySQL',
       'PostgreSQL',
-      'FAISS',
-      'Pinecone',
-      'MLflow',
-      'Weights & Biases',
+      'MySQL',
+      'Linux',
       'AWS',
-      'GCP',
+      'Postman',
+      'PG Vector',
+      'FAISS',
+      'VS Code & Jupyter',
+
     ],
   },
   {
     title: 'Frontend',
-    items: ['React.js', 'HTML', 'CSS','Vue.js','Three.js','Next.js'],
+    items: ['React.js', 'HTML', 'CSS','Vue.js','Three.js','Next.js','Tailwind'],
   },
   {
     title: 'Other',
-    items: ['Wordpress','SEO','Google Analytics','Figma','Canva',],
+    items: ['Wordpress','SEO','Google Analytics','Figma','Canva','REST APIs','Agile Methodologies'],
   }
 ]
 
@@ -477,17 +478,28 @@ function HeroSection() {
         Shahzaib Shafique<span className="text-[#64ffda]">.</span>
       </h1>
       <div className="text-lg text-gray-300 sm:text-xl">
-        <p className="font-medium text-white">AI Engineer</p>
+        <p className="font-medium text-white">AI Engineer & Full-Stack Developer</p>
         <p className="text-gray-400">Islamabad, Pakistan</p>
       </div>
       <div className="text-base text-gray-400">
         <p>
-          I’m an AI Engineer focused on building practical and reliable machine learning, NLP, and LLM-based solutions.
-          I enjoy creating end-to-end AI systems using Python, PyTorch, LangChain, and modern cloud tools. I’ve completed
-          multiple AI projects through Upwork with a 100% Job Success Score, and I love using AI to automate workflows,
-          improve efficiency, and create real impact.
+          I bridge the gap between cutting-edge Artificial Intelligence and robust web architecture. Based in Islamabad, I build intelligent, AI-powered applications using Python and PyTorch, alongside scalable, SEO-friendly web platforms using Next.js, React, and Flask. Whether you need a custom generative AI model or a high-performance SaaS platform from scratch, I deliver clean code and clear communication.
         </p>
       </div>
+
+
+      <div className="rounded-xl shadow-lg border-0 border-gray-200 overflow-hidden aspect-video max-w-2xl my-8">
+  <iframe 
+    width="100%" 
+    height="100%" 
+    src="https://www.youtube.com/embed/y9dq0YsXfZ0" 
+    title="Shahzaib Shafique | Freelance AI Engineer & Full-Stack Web Developer" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowFullScreen
+    className="w-full h-full"
+  ></iframe>
+</div>
+
       <div className="flex flex-wrap gap-3 text-sm">
         {headerLinks.map((link) => (
           <a
