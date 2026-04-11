@@ -487,7 +487,7 @@ function HeroSection() {
         </p>
       </div>
 
-
+{/*
       <div className="rounded-xl shadow-lg border-0 border-gray-200 overflow-hidden aspect-video max-w-2xl my-8">
   <iframe 
     width="100%" 
@@ -498,7 +498,7 @@ function HeroSection() {
     allowFullScreen
     className="w-full h-full"
   ></iframe>
-</div>
+</div>  */}
 
       <div className="flex flex-wrap gap-3 text-sm">
         {headerLinks.map((link) => (
