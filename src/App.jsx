@@ -1,10 +1,23 @@
-import { useEffect, useRef } from 'react'
-import { Link, Route, Routes, useParams } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
+import { Link, Route, Routes, useLocation, useParams } from 'react-router-dom'
 import { motion as Motion } from 'framer-motion'
 import cvFile from './assets/Shahzaib-Shafique_AI-Engineer.pdf'
 import nlpCertificateImage from './assets/nlpcertificate.png'
 import dataScienceCertificate from './assets/datascience.pdf'
-import ScrollToTop from './scrollToTop.jsx'; 
+import ScrollToTop from './scrollToTop.jsx'
+import Dashboard from './components/dashboard'
+import ChatWidget from './components/ChatWidget'; 
+import tavi1 from './assets/images/Tavi procedure project 1.jpeg'
+import tavi2 from './assets/images/Tavi procedure project 4.jpeg'
+
+import grant1 from './assets/images/NEXT JS 1.png'
+import next3 from './assets/images/NEXT JS 3.png'
+import deep1 from './assets/images/Deep Neural Network.png'
+import deep_transformers from './assets/images/Deep Neural Network transformers 1.png'
+import mine2 from './assets/images/mine 2.png'
+import mine4 from './assets/images/mine 4.png'
+import rag_chat from './assets/images/RAG AGENT/Chat.png'
+import projects from './data/projectsData.js'
 
 const headerLinks = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/s-shahzaib' },
@@ -13,7 +26,7 @@ const headerLinks = [
   { label: 'Fiverr', href: 'https://www.fiverr.com/s/KeQKyQV' },
   { label: 'LeetCode', href: 'https://leetcode.com/u/shahdesigner30/' },
   { label: 'Kaggle', href: 'https://www.kaggle.com/shahzaib2222' },
-  { label: 'Email', href: 'mailto:shahdesigner30@gmail.com' },
+  { label: 'Email', href: 'mailto:shahzaibshafique.dev@gmail.com' },
 ]
 
 const skills = [
@@ -76,235 +89,28 @@ const skills = [
   }
 ]
 
-const projects = [
+const upworkProfileUrl = 'https://www.upwork.com/freelancers/~01774fb1bf81238658'
+
+const upworkReviews = [
   {
-    slug: 'tavi-planning-system',
-    title: 'TAVI Planning System using Deep Learning',
-    year: '2025',
-    description:
-      'Automated clinical-grade TAVI planning leveraging nnUNet for volumetric segmentation and stent sizing from CTA.',
-    tools: ['nnUNet', 'PyTorch', '3D Segmentation', 'Medical Imaging'],
-    status: 'In Progress',
-    image:
-      'https://images.unsplash.com/photo-1504439468489-c8920d796a29?auto=format&fit=crop&w=1200&q=80&sat=-35',
-    imageAlt: '3D cardiac visualization rendered from CTA scans',
-    github: 'https://github.com/Shahzaib30/tavi-planning-system',
-    summary:
-      'Building a point-and-click planning cockpit for cardiologists that ingests CTA scans, segments anatomy, and returns precise stent sizing in under five minutes.',
-    highlights: [
-      'nnUNet + MONAI pipeline with automatic quality checks',
-      'Sub-2mm measurement variance on validation datasets',
-      'FastAPI microservice deployed on self-hosted GPU node',
-    ],
-    detailSections: [
-      {
-        title: 'Problem',
-        body: 'Cardiac teams manually traced valve boundaries for every TAVI candidate, which could take over an hour per patient and produced inconsistent sizing.',
-      },
-      {
-        title: 'Solution',
-        body: 'Designed a volumetric workflow: DICOM ingestion → nnUNet inference → mesh post-processing → stent sizing heuristics → PDF planning report.',
-      },
-      {
-        title: 'Impact',
-        body: 'Pilot sites reduced planning time by 78% while giving surgeons richer visual overlays and an auditable trail per patient.',
-      },
-    ],
+    quote:
+      "He is my top freelancer. We've been working together for a year now and will continue. Sheikh is my number one 'go to' guy... pleasant, honest, and improving all the time.",
+    client: 'Enterprise Web & Client Infrastructure Client',
   },
   {
-    slug: 'grantgenius',
-    title: 'GrantGenius – AI Grant Matching & Proposal Generator',
-    year: '2024',
-    description:
-      'LLM-powered assistant that surfaces relevant grants and drafts polished proposals with context-aware reasoning.',
-    tools: ['Python', 'LangChain', 'LLMs', 'NLP'],
-    status: 'Completed',
-    image:
-      'https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?auto=format&fit=crop&w=1200&q=80&sat=-20',
-    imageAlt: 'Team collaborating over grant documents and laptops',
-    github: 'https://github.com/Shahzaib30/grantgenius',
-    summary:
-      'A retrieval-augmented LLM that watches 2,000+ grant feeds, matches opportunities to each NGO, and drafts first-pass proposals with consistent voice.',
-    highlights: [
-      'Custom embedder fine-tuned on 6 years of successful grants',
-      'Insight dashboard built with React + TanStack Table',
-      'Guardrailed proposal generation with factuality checks',
-    ],
-    detailSections: [
-      {
-        title: 'Discovery',
-        body: 'Clients struggled to keep up with rapidly changing funding criteria. We mapped their decision tree to a vector database + eligibility engine.',
-      },
-      {
-        title: 'Automation',
-        body: 'Daily cron jobs crawl grant APIs, normalize metadata, and sync embeddings into Pinecone so scoring stays instant.',
-      },
-      {
-        title: 'Results',
-        body: 'Average research time fell from 6 hours to 35 minutes per grant and close rates improved by 18% thanks to stronger positioning.',
-      },
-    ],
+    quote:
+      'Sheikh did a great job helping with the website and creating AI images. He always delivers hard work and top-quality goods. Will definitely hire again.',
+    client: 'Automation & Digital Optimization Client',
   },
   {
-    slug: 'speech-emotion-recognition',
-    title: 'Speech Emotion Recognition System',
-    year: '2025',
-    description:
-      'Accuracy: 90%+. Deep neural architecture that classifies speaker sentiment for safer, more human voice interfaces.',
-    tools: ['Audio Processing', 'CNNs', 'PyTorch'],
-    status: 'Completed',
-    image:
-      'https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=1200&q=80&sat=-15',
-    imageAlt: 'Waveform visualizations on dual monitors',
-    github: 'https://github.com/Shahzaib30/speech-emotion-recognition',
-    summary:
-      'Built a multi-task CNN + BiLSTM pipeline that understands tone, urgency, and stress levels from streaming audio for safer IVR agents.',
-    highlights: [
-      'SpecAugment + mixup for far-field robustness',
-      'Self-serve labeling UI for call-center SMEs',
-      '99th percentile latency under 150ms on GPU edge nodes',
-    ],
-    detailSections: [
-      {
-        title: 'Dataset',
-        body: 'Combined open-source corpora (RAVDESS, CREMA-D) with 400 hours of anonymized support calls to balance accents and noise profiles.',
-      },
-      {
-        title: 'Modeling',
-        body: 'Stacked 2D CNN front-end for spectrogram features with a BiLSTM decoder plus focal loss to correct class imbalance.',
-      },
-      {
-        title: 'Deployment',
-        body: 'Wrapped the model inside TorchScript, served through Triton Inference Server, and streamed classifications into a React ops dashboard.',
-      },
-    ],
+    quote:
+      'I am very pleased with Sheikh\'s work and his attention to detail. He is turning out to be a fine member of my team. Generates accurate jobs, as usual.',
+    client: 'Systems & Operations Management Client',
   },
   {
-    slug: 'rankspotter-serp-tracker',
-    title: 'RankSpotter – Real-time SERP Tracker',
-    year: '2025',
-    description:
-      'Production-grade SERP monitoring stack with React dashboards and a Flask data pipeline, currently scaling to more keywords.',
-    tools: ['React', 'Flask', 'PostgreSQL', 'SERP APIs'],
-    status: 'Completed',
-    image:
-      'https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1200&q=80&sat=-10',
-    imageAlt: 'Analytics dashboard with ranking charts',
-    github: 'https://github.com/Shahzaib30/rankspotter',
-    summary:
-      'Always-on rank tracking with anomaly alerts, competitor overlays, and automatic screenshot evidence per SERP movement.',
-    highlights: [
-      'Headless Chromium workers capture pixel-perfect SERPs',
-      'Multi-tenant RBAC with Supabase Auth',
-      'Hourly refresh loop covering 12k keywords',
-    ],
-    detailSections: [
-      {
-        title: 'Pipeline',
-        body: 'Scheduler fans out to rotating proxies, scrapes SERPs, and normalizes features (position, pixel depth, SERP features) before landing in Postgres.',
-      },
-      {
-        title: 'Product',
-        body: 'React dashboard shows sparkline deltas, “share of search” trendlines, and push notifications for dramatic drops.',
-      },
-      {
-        title: 'Business Impact',
-        body: 'SEO teams cut diagnosis time from days to minutes and proved ROI with automated weekly PDF digests.',
-      },
-    ],
-  },
-  {
-    slug: 'python-music-player',
-    title: 'Python Music Player',
-    year: '2023',
-    description: 'Clean Tkinter desktop app for playlist management and local playback.',
-    tools: ['Python', 'Tkinter'],
-    status: 'Completed',
-    image:
-      'https://images.unsplash.com/photo-1487215078519-e21cc028cb29?auto=format&fit=crop&w=1200&q=80&sat=-12',
-    imageAlt: 'Vintage headphones connected to a laptop',
-    github: 'https://github.com/Shahzaib30/python-music-player',
-    summary:
-      'A focused desktop player with waveform previews, queue controls, and keyboard shortcuts for DJs who prefer offline crates.',
-    highlights: [
-      'Mutagen-powered metadata editing',
-      'SQLite library with fuzzy search',
-      'Cross-platform packaging via PyInstaller',
-    ],
-    detailSections: [
-      {
-        title: 'Interface',
-        body: 'Custom Tkinter theme with dark palette, dynamic resizing, and a queue drawer inspired by Ableton.',
-      },
-      {
-        title: 'Features',
-        body: 'Drag-and-drop playlists, waveform scrubbing, and auto-saving last session state.',
-      },
-      {
-        title: 'Extendability',
-        body: 'Plugin hooks allow users to sync last.fm scrobbles or map MIDI controllers.',
-      },
-    ],
-  },
-  {
-    slug: 'nlp-mini-projects',
-    title: 'NLP Mini Projects',
-    year: '—',
-    description: 'A curated pack of smaller NLP experiments and utilities.',
-    tools: ['Coming Soon'],
-    status: 'Coming Soon',
-    image:
-      'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80&sat=-20',
-    imageAlt: 'Code editor with highlighted NLP scripts',
-    github: 'https://github.com/Shahzaib30/nlp-mini-projects',
-    summary: 'Collection of micro-experiments: prompt optimizers, summarizers, and evaluation harnesses.',
-    highlights: ['Batch evaluation harness', 'Prompt templating playground'],
-    detailSections: [
-      {
-        title: 'Status',
-        body: 'Currently documenting the most reusable snippets before open-sourcing.',
-      },
-    ],
-  },
-  {
-    slug: 'rag-chatbot',
-    title: 'RAG Chatbot',
-    year: '—',
-    description: 'Domain-tuned retrieval-augmented chatbot with guardrails.',
-    tools: ['Coming Soon'],
-    status: 'Coming Soon',
-    image:
-      'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80&sat=-10',
-    imageAlt: 'Chat interface mockups on a tablet',
-    github: 'https://github.com/Shahzaib30/rag-chatbot',
-    summary: 'An enterprise-ready assistant with policy guardrails, vector search, and analytics.',
-    highlights: ['Private data connectors', 'Realtime guardrail tracing'],
-    detailSections: [
-      {
-        title: 'Status',
-        body: 'Currently integrating vendor knowledge bases and access controls.',
-      },
-    ],
-  },
-  {
-    slug: 'ai-resume-reviewer',
-    title: 'AI Resume Reviewer',
-    year: '—',
-    description: 'Automated feedback loop for stronger AI-ready resumes.',
-    tools: ['Coming Soon'],
-    status: 'Coming Soon',
-    image:
-      'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1200&q=80&sat=-10',
-    imageAlt: 'Printed resumes marked with annotations',
-    github: 'https://github.com/Shahzaib30/ai-resume-reviewer',
-    summary: 'Uploads a resume, benchmarks it against role descriptions, and outputs quantified improvements.',
-    highlights: ['ATS optimization scoring', 'Interview-ready recommendations'],
-    detailSections: [
-      {
-        title: 'Status',
-        body: 'Finishing the scoring rubric and UX polish before launch.',
-      },
-    ],
+    quote:
+      'Was great to work with! Prompt in communication, quick, good value, and brought good professional insight as well as great willingness to change and adapt to our needs.',
+    client: 'Global Product Delivery Client',
   },
 ]
 
@@ -359,6 +165,8 @@ const statusStyles = {
     'border-emerald-400/40 bg-emerald-400/10 text-emerald-200 shadow-[0_0_15px_rgba(16,185,129,0.15)]',
   'In Progress':
     'border-amber-400/40 bg-amber-400/10 text-amber-200 shadow-[0_0_15px_rgba(251,191,36,0.15)]',
+  Public:
+    'border-cyan-400/40 bg-cyan-400/10 text-cyan-200 shadow-[0_0_15px_rgba(6,182,212,0.15)]',
   'Coming Soon':
     'border-cyan-400/40 bg-cyan-400/5 text-cyan-200 shadow-[0_0_15px_rgba(6,182,212,0.12)]',
 }
@@ -556,6 +364,29 @@ function SkillsSection() {
   )
 }
 
+function ReviewsSection() {
+  return (
+    <Section id="reviews" eyebrow="Social Proof" title="Upwork Client Reviews">
+      <div className="grid gap-4 sm:grid-cols-2">
+        {upworkReviews.map((review, index) => (
+          <a
+            key={`${review.client}-${index}`}
+            href={upworkProfileUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="group rounded-2xl border border-white/10 bg-white/5 p-5 shadow-[0_20px_70px_rgba(0,0,0,0.35)] backdrop-blur transition hover:-translate-y-0.5 hover:border-[#64ffda]/40 hover:bg-white/[0.08]"
+          >
+            <p className="text-sm font-semibold tracking-[0.15em] text-amber-300">5.0 • ★★★★★</p>
+            <p className="mt-3 text-sm leading-7 text-gray-200">"{review.quote}"</p>
+            <p className="mt-4 text-xs uppercase tracking-[0.18em] text-gray-400">{review.client}</p>
+            <p className="mt-3 text-xs font-medium text-[#64ffda] transition group-hover:text-[#8fffe6]">View on Upwork →</p>
+          </a>
+        ))}
+      </div>
+    </Section>
+  )
+}
+
 function ProjectsHighlight() {
   return (
     <Section id="projects" eyebrow="Selected Work" title="Projects & Experiments">
@@ -673,6 +504,31 @@ function ProjectsPage() {
 function ProjectDetailPage() {
   const { slug } = useParams()
   const project = slug ? projectLookup[slug] : null
+  const [selectedImage, setSelectedImage] = useState(null)
+
+  useEffect(() => {
+    if (!selectedImage) return undefined
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setSelectedImage(null)
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [selectedImage])
+
+  useEffect(() => {
+    if (!selectedImage) return undefined
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+    }
+  }, [selectedImage])
 
   if (!project) {
     return (
@@ -699,7 +555,24 @@ function ProjectDetailPage() {
   }
 
   const isComingSoon = project.status === 'Coming Soon'
-  const { image, imageAlt, summary, highlights = [], detailSections = [], github } = project
+  const { image, imageAlt, summary, highlights = [], detailSections = [], caseStudy, github, links = [] } = project
+
+  const details = detailSections.length
+    ? detailSections
+    : caseStudy
+      ? [
+          { title: 'Problem', body: caseStudy.problem },
+          { title: 'Solution', body: caseStudy.solution },
+          { title: 'Impact', body: caseStudy.impact },
+        ].filter((section) => Boolean(section.body))
+      : []
+
+  const imageGallery = (Array.isArray(project.images) && project.images.length > 0
+    ? project.images
+    : image
+      ? [image]
+      : []
+  ).slice(0, 2)
 
   return (
     <Motion.section className="py-10" initial="hidden" animate="visible" variants={fadeIn}>
@@ -711,9 +584,23 @@ function ProjectDetailPage() {
           {project.status}
         </span>
       </div>
-      {image && (
-        <div className="mt-8 overflow-hidden rounded-3xl border border-white/5 bg-white/5">
-          <img src={image} alt={imageAlt ?? project.title} className="h-full w-full object-cover" loading="lazy" />
+      {imageGallery.length > 0 && (
+        <div className={`mt-8 grid gap-4 ${imageGallery.length > 1 ? 'md:grid-cols-2' : 'grid-cols-1'}`}>
+          {imageGallery.map((src, idx) => (
+            <button
+              key={`${project.slug}-image-${idx}`}
+              type="button"
+              onClick={() => setSelectedImage(src)}
+              className="overflow-hidden rounded-3xl border border-white/5 bg-white/5 transition hover:-translate-y-0.5 hover:border-[#64ffda]/30 hover:shadow-[0_20px_60px_rgba(100,255,218,0.08)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#64ffda]"
+            >
+              <img
+                src={src}
+                alt={imageAlt ? `${imageAlt} (${idx + 1})` : `${project.title} screenshot ${idx + 1}`}
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+            </button>
+          ))}
         </div>
       )}
       <p className="mt-8 text-lg text-gray-200">{summary ?? project.description}</p>
@@ -735,8 +622,8 @@ function ProjectDetailPage() {
         </ul>
       )}
       <div className="mt-10 space-y-6 text-base text-gray-300">
-        {detailSections.length > 0 ? (
-          detailSections.map((section) => (
+        {details.length > 0 ? (
+          details.map((section) => (
             <div key={`${project.slug}-${section.title}`}>
               <p className="text-sm uppercase tracking-[0.3em] text-gray-500">{section.title}</p>
               <p className="mt-2 text-gray-200">{section.body}</p>
@@ -749,6 +636,39 @@ function ProjectDetailPage() {
           </p>
         )}
       </div>
+
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-4 py-6 backdrop-blur-sm"
+          onClick={() => setSelectedImage(null)}
+          role="presentation"
+        >
+          <div
+            className="relative w-[70vw] max-w-5xl"
+            style={{ maxHeight: '70vh' }}
+            onClick={(event) => event.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Project image preview"
+          >
+            <button
+              type="button"
+              onClick={() => setSelectedImage(null)}
+              className="absolute -right-3 -top-3 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/80 text-white transition hover:border-[#64ffda] hover:text-[#64ffda]"
+              aria-label="Close image preview"
+            >
+              ×
+            </button>
+            <div className="overflow-hidden rounded-3xl border border-white/10 bg-black/90 shadow-[0_30px_120px_rgba(0,0,0,0.7)]">
+              <img
+                src={selectedImage}
+                alt={imageAlt ?? project.title}
+                className="max-h-[70vh] w-full object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      )}
       <div className="mt-10 flex flex-wrap gap-3 text-sm">
         {github && (
           <a
@@ -761,6 +681,17 @@ function ProjectDetailPage() {
             <span aria-hidden="true">↗</span>
           </a>
         )}
+        {links.map((link) => (
+          <a
+            key={link.href}
+            href={link.href}
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-gray-200 transition hover:-translate-y-0.5 hover:border-[#64ffda] hover:text-[#64ffda]"
+          >
+            {link.label}
+          </a>
+        ))}
         <Link
           to="/projects"
           className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-gray-200 transition hover:-translate-y-0.5 hover:border-[#64ffda] hover:text-[#64ffda]"
@@ -808,6 +739,7 @@ function HomePage() {
   return (
     <>
       <HeroSection />
+      <ReviewsSection />
       <SkillsSection />
       <ProjectsHighlight />
       <ExperienceSection />
@@ -842,6 +774,8 @@ function SiteFooter() {
 
 function App() {
   const glowRef = useRef(null)
+  const location = useLocation()
+  const isDashboardRoute = location.pathname.startsWith('/dashboard')
 
   useEffect(() => {
     const glowEl = glowRef.current
@@ -859,16 +793,22 @@ function App() {
   return (
     <div className="min-h-screen text-gray-100" style={{ backgroundColor: 'var(--page-bg)' }}>
       <div ref={glowRef} className="cursor-glow" aria-hidden="true" />
-      <div className="mx-auto flex min-h-screen max-w-3xl flex-col px-5 pb-16 pt-10 sm:px-6 lg:px-0">
+      <div
+        className={isDashboardRoute
+          ? 'flex min-h-screen w-full flex-col'
+          : 'mx-auto flex min-h-screen max-w-3xl flex-col px-5 pb-16 pt-10 sm:px-6 lg:px-0'}
+      >
         <ScrollToTop />  {/* for scroll to above */}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/projects/:slug" element={<ProjectDetailPage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-        <SiteFooter />
+        {!isDashboardRoute ? <SiteFooter /> : null}
       </div>
+      {/* <ChatWidget /> */}
     </div>
   )
 }
