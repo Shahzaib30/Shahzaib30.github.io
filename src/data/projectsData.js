@@ -16,6 +16,48 @@ import arch2 from '../assets/images/arch1.png';
 
 const projects = [
   {
+    slug: 'made-multi-agent-decision-engine',
+    title: 'MADE — Multi-Agent Decision Engine',
+    year: '2026',
+    description: 'Production-grade multi-agent system orchestrating 5 specialist agents through a LangGraph state machine with crash recovery and human-in-the-loop gating.',
+    tools: ['LangGraph', 'LangSmith', 'FastAPI', 'Next.js', 'Redis', 'ChromaDB', 'PostgreSQL'],
+    status: 'Completed',
+    imageAlt: 'Multi-agent decision engine architecture with specialist agents and consensus voting',
+    github: 'https://github.com/Shahzaib30/Multi-Agent-Decision-Engine',
+    summary: 'A production-grade multi-agent decision system with 5 specialist agents — Research, Reasoning, Critic, Risk, and Synthesizer — orchestrated via a LangGraph state machine, built for automated financial analysis, competitive intelligence, and customer support workflows. Email me to get a demo.',
+    caseStudy: {
+      problem: 'Complex decision-making tasks like financial analysis and competitive intelligence require synthesizing multiple perspectives, weighing conflicting evidence, and escalating high-stakes calls to a human — something a single LLM call handles poorly and without auditability.',
+      solution: 'Architected a LangGraph state machine coordinating 5 specialist agents (Research, Reasoning, Critic, Risk, Synthesizer) with crash recovery. Built a custom consensus engine using structured debate protocols and confidence-weighted voting, backed by three-tier memory (Redis, ChromaDB, PostgreSQL), human-in-the-loop Slack gating for high-risk decisions, and full observability via OpenTelemetry, Prometheus, and Grafana.',
+      impact: 'Delivers auditable, multi-perspective decisions instead of single-shot LLM guesses, with automatic escalation to a human reviewer when agent confidence is low, and full tracing of how each decision was reached across the agent debate.'
+    },
+    highlights: [
+      '5-agent LangGraph state machine with crash recovery',
+      'Confidence-weighted consensus engine with structured debate',
+      'Three-tier memory and full OpenTelemetry observability'
+    ],
+  },
+  {
+    slug: 'qlora-rag-hybrid-llm',
+    title: 'QLoRA Fine-tuned LLM with RAG Hybrid Integration',
+    year: '2026',
+    description: 'Fine-tuned Mistral-7B with QLoRA 4-bit quantization and benchmarked it against RAG-only and hybrid fine-tune+RAG configurations.',
+    tools: ['Python', 'QLoRA', 'PEFT', 'Hugging Face', 'LangChain', 'FastAPI'],
+    status: 'Completed',
+    imageAlt: 'Benchmark comparison of RAG-only, fine-tune-only, and hybrid LLM configurations',
+    github: 'https://github.com/Shahzaib30/qlora-rag-chatbot',
+    summary: 'Fine-tuned Mistral-7B using QLoRA with 4-bit quantization to cut GPU memory usage by 75%, then benchmarked RAG-only, fine-tune-only, and hybrid configurations against each other. Email me to get a demo.',
+    caseStudy: {
+      problem: 'Full fine-tuning of a 7B-parameter model is GPU-memory-prohibitive for most teams, and it is unclear upfront whether fine-tuning, retrieval-augmented generation, or a hybrid of both gives the best domain accuracy for a given use case.',
+      solution: 'Fine-tuned Mistral-7B with QLoRA 4-bit quantization, cutting GPU memory requirements by 75% versus full fine-tuning. Built a controlled benchmark harness comparing RAG-only, fine-tune-only, and a hybrid fine-tune-plus-RAG configuration on the same domain evaluation set.',
+      impact: 'The hybrid configuration achieved the highest domain accuracy of the three approaches, giving a concrete, benchmarked answer to when fine-tuning versus RAG versus both is worth the extra engineering cost.'
+    },
+    highlights: [
+      '75% GPU memory reduction via QLoRA 4-bit quantization',
+      'Controlled benchmark: RAG-only vs fine-tune-only vs hybrid',
+      'Hybrid approach achieved the highest domain accuracy'
+    ],
+  },
+  {
     slug: 'enterprise-rag-lead-gen',
     title: 'Enterprise RAG System & Lead-Generation AI Agent',
     year: '2026',
@@ -227,6 +269,26 @@ const projects = [
       'Transformer and attention architecture experiments',
       'Reproducible training and evaluation workflows',
       'Reusable deep learning research scaffolding'
+    ]
+  },
+  {
+    slug: 'fullstack-directory-website',
+    title: 'Full-Stack Directory Website',
+    year: '2026',
+    description: 'Scalable business/listing directory platform built with a Next.js frontend and a FastAPI backend, deployed on an AWS server.',
+    tools: ['Next.js', 'React', 'FastAPI', 'PostgreSQL', 'AWS'],
+    status: 'In Progress',
+    imageAlt: 'Full-stack directory website interface showing listings and search',
+    summary: 'A full-stack directory web application with a Next.js frontend for fast, SEO-friendly browsing and a FastAPI backend handling listings, search, and data operations, deployed on an AWS server. Email me to get a demo.',
+    caseStudy: {
+      problem: 'Directory-style platforms need to serve large volumes of searchable listings quickly, rank well in search engines, and stay maintainable as the catalog and traffic grow, which is difficult with tightly coupled, non-scalable architectures.',
+      solution: 'Building a decoupled architecture with a Next.js frontend for server-rendered, SEO-friendly pages and a FastAPI backend exposing clean REST endpoints for listings, filtering, and search. The backend is deployed on an AWS server with a PostgreSQL database, structured for horizontal scaling as data volume increases.',
+      impact: 'Aims to deliver a fast, SEO-friendly directory experience with a clean separation between frontend and backend, making it straightforward to scale traffic, extend listing categories, and add new features without reworking the core architecture.'
+    },
+    highlights: [
+      'Next.js frontend optimized for SEO and speed',
+      'FastAPI backend with clean REST endpoints',
+      'Deployed on AWS with a scalable architecture'
     ]
   }
 ];

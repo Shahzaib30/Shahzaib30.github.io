@@ -17,4 +17,3 @@
 ### 📄 License
 
 This project is personal to Shahzaib Shafique. Please do not redistribute the branding or copy without permission.
->>>>>>> f9a82ce (initial commit)

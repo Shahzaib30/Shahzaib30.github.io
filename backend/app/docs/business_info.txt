@@ -1,0 +1,77 @@
+SUBJECT: SHAHZAIB SHAFIQUE — PROFESSIONAL PROFILE & PORTFOLIO KNOWLEDGE BASE
+Classification: Public / Visitor-Facing
+
+1.0 IDENTITY
+Name: Shahzaib Shafique
+Roles: AI Engineer, Machine Learning Engineer, Agentic AI Developer, Full Stack Web Developer, Backend API Engineer.
+Location: Islamabad, Pakistan.
+Contact: shahzaibshafique.dev@gmail.com | 0311-9762568
+GitHub: github.com/Shahzaib30
+LinkedIn: linkedin.com/in/s-shahzaib
+Portfolio: https://shahzaib30.github.io/
+
+2.0 PROFESSIONAL SUMMARY
+Shahzaib is an AI Engineer and Full Stack Web Developer with hands-on experience in machine learning, deep learning, NLP, LLM fine-tuning, multi-agent systems, and production RAG (retrieval-augmented generation) pipelines. He is proficient in Python, PyTorch, FastAPI, LangChain, LangGraph, Hugging Face, PEFT, Redis, PostgreSQL, React, Next.js, and TypeScript. He has built production systems including a multi-agent decision engine, fine-tuned LLMs, RAG chatbots with embeddable widgets and admin dashboards, and medical image segmentation pipelines. As a freelancer he has delivered 15+ production web applications and maintained a 100% Job Success Score on Upwork.
+
+3.0 TECHNICAL SKILLS
+Languages: Python, SQL, JavaScript, TypeScript, C++, Bash.
+AI & Machine Learning: Machine Learning, Deep Learning, NLP, Computer Vision, PyTorch, scikit-learn, Hugging Face, OpenCV, Transformers.
+LLM & Fine-tuning: LoRA, QLoRA, PEFT, bitsandbytes, LangChain, LangGraph, LangSmith, RAG, Embeddings, Vector Search, Prompt Engineering, Ollama, OpenAI API.
+Agentic AI & Infrastructure: Multi-Agent Systems, Consensus Engines, Human-in-the-Loop workflows, Redis, ChromaDB, PgVector, FAISS, OpenTelemetry.
+Backend & Tools: FastAPI, REST APIs, PostgreSQL, Docker, Git, Linux, React, Next.js.
+Frontend: React, Next.js, JavaScript, TypeScript, HTML5, CSS3, WordPress, Elementor.
+Other: Technical SEO, Google Analytics, Figma, Canva, Agile Methodologies.
+
+4.0 PROFESSIONAL EXPERIENCE
+
+4.1 AI Engineer Intern — Wise-Tech (On-site, 3 Months, 2026)
+Developed and deployed NLP-based text classification and information extraction pipelines using Python, Hugging Face Transformers, and FastAPI, integrated into a live production application. Optimized LLM inference workflows through prompt engineering and model quantization, reducing average response latency by 30 percent across core AI features.
+
+4.2 Freelance Full Stack Developer / Web Developer & SEO Specialist — Upwork Top Rated (Remote, Jan 2022 – Present)
+Delivered 15+ production web applications, REST APIs, responsive landing pages, and backend integrations for international clients while maintaining a 100 percent Job Success Score. Built and deployed full-stack systems using React, Next.js, FastAPI, PostgreSQL, and AWS, including data-driven dashboards and automated backend pipelines. Engineered 2 modern, high-converting WordPress sites for healthcare businesses (Bluebell ABA and Little Achievers ABA), decreasing average page load times by 1.2 seconds. Improved client organic search visibility by up to 40 percent and boosted monthly traffic by 500+ visitors through technical on-page SEO and schema markup. Resolved 30+ indexing and sitemap errors using Google Search Console and Google Analytics to ensure Core Web Vitals compliance.
+
+4.3 Full Stack Web Developer Intern — Elevvo Pathways (Remote, Sep 2025, 1 Month)
+Developed component-driven React interfaces and integrated them with backend API endpoints across 3 internal web applications. Engineered responsive layouts and streamlined data flows to ensure optimal performance, security, and a seamless user experience.
+
+4.4 Data Science Intern — Digital Empowerment Network (Remote, Sep 2025, 1 Month)
+Conducted rigorous exploratory data analysis on datasets containing 10,000+ records using Python, Pandas, and NumPy. Engineered 15+ new features and structured backend datasets, optimizing data pipelines for faster visualization and processing. Trained ML classification models evaluated on accuracy, precision, recall, and F1-score.
+
+5.0 KEY PROJECTS
+
+5.1 MADE — Multi-Agent Decision Engine (2026)
+Tools: LangGraph, LangSmith, FastAPI, Next.js, Redis, ChromaDB, PostgreSQL. Repo: github.com/Shahzaib30/Multi-Agent-Decision-Engine
+Architected a production-grade multi-agent system with 5 specialist agents (Research, Reasoning, Critic, Risk, Synthesizer) orchestrated via a LangGraph state machine with crash recovery, enabling automated financial analysis, competitive intelligence, and customer support workflows. Engineered a custom consensus engine using structured debate protocols and confidence-weighted voting, backed by three-tier memory (Redis, ChromaDB, PostgreSQL), human-in-the-loop Slack gating, and full observability via OpenTelemetry, Prometheus, and Grafana.
+
+5.2 Enterprise RAG System & Lead-Generation AI Agent (Jan 2026 – Present)
+Tools: FastAPI, LangGraph, LangChain, PostgreSQL, PgVector, React. Repo: github.com/Shahzaib30/advanced-rag-assistant
+Built a production RAG chatbot with vector search and agentic LangGraph workflows handling 100+ weekly queries with sub-second response times, plus a React admin dashboard and embeddable widget that automatically extracts, validates, and securely stores 50+ leads per month into PostgreSQL. This exact system also powers the chat widget on Shahzaib's personal portfolio site.
+
+5.3 QLoRA Fine-tuned LLM with RAG Hybrid Integration (2026)
+Tools: Python, QLoRA, PEFT, Hugging Face, LangChain, FastAPI. Repo: github.com/Shahzaib30/qlora-rag-chatbot
+Fine-tuned Mistral-7B using QLoRA with 4-bit quantization, cutting GPU memory usage by 75 percent, then benchmarked RAG-only, fine-tune-only, and hybrid configurations — the hybrid approach achieved the highest domain accuracy.
+
+5.4 TAVI Planning System Using Deep Learning (Sep 2025 – Jun 2026)
+Tools: Deep Learning, nnUNet, 3D Segmentation, Medical Imaging, PyTorch, Hugging Face.
+Trained a 3D nnUNet segmentation model on CTA scans achieving 85%+ Dice score, built 3D valve-fitting visualizations, and generated AI-assisted diagnostic reports for cardiac surgical planning.
+
+5.5 Full-Stack Directory Website (In Progress, 2026)
+Tools: Next.js, React, FastAPI, PostgreSQL, AWS.
+Scalable business/listing directory platform with a Next.js frontend and a FastAPI backend, being deployed on an AWS server.
+
+5.6 Personal Portfolio Website (2026)
+Tools: React, JavaScript, CSS. Live at shahzaib30.github.io
+Designed and developed the responsive personal portfolio website you are currently chatting on, showcasing full-stack and AI projects, technical capabilities, and freelance client work.
+
+6.0 EDUCATION
+Bachelor of Science (BS) in Artificial Intelligence — National University of Modern Languages (NUML), Islamabad, Pakistan.
+Graduated: May 2026. GPA: 3.4 / 4.0.
+Relevant coursework: Machine Learning, Deep Learning, Computer Vision, NLP, Reinforcement Learning, Database Systems, Data Structures, Object-Oriented Programming, Probability and Statistics.
+
+7.0 CVs / RESUMES
+Shahzaib maintains two role-specific resumes, both downloadable from the portfolio site:
+- AI Engineer CV — focused on machine learning, LLM fine-tuning, multi-agent systems, and RAG work.
+- Full Stack Web Developer CV — focused on React, Next.js, FastAPI, and freelance web delivery.
+If a visitor asks for a resume or CV, point them to the "Download CV" buttons on the portfolio homepage, or offer to be contacted directly via email for a copy.
+
+8.0 HOW TO WORK WITH SHAHZAIB
+Shahzaib is available for freelance and full-time opportunities in AI engineering (RAG systems, multi-agent systems, LLM fine-tuning, NLP) and full-stack web development (React, Next.js, FastAPI). He can be reached at shahzaibshafique.dev@gmail.com or via the contact links on his portfolio (LinkedIn, GitHub, Upwork, Fiverr).

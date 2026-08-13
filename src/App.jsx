@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, Route, Routes, useLocation, useParams } from 'react-router-dom'
 import { motion as Motion } from 'framer-motion'
-import cvFile from './assets/Shahzaib-Shafique_AI-Engineer.pdf'
+import aiEngineerCv from './assets/Shahzaib-Shafique_AI-Engineer.pdf'
+import webDeveloperCv from './assets/Shahzaib-Shafique_Web-Developer.pdf'
 import nlpCertificateImage from './assets/nlpcertificate.png'
 import dataScienceCertificate from './assets/datascience.pdf'
 import ScrollToTop from './scrollToTop.jsx'
@@ -32,17 +33,18 @@ const headerLinks = [
 const skills = [
   {
     title: 'Languages',
-    items: ['Python', 'SQL', 'C++', 'JavaScript'],
+    items: ['Python', 'SQL', 'TypeScript', 'JavaScript', 'C++'],
   },
   {
     title: 'Frameworks & Libraries',
     items: [
       'PyTorch',
-      'Flaske',
+      'Flask',
       'FastAPI',
       'React.js',
       'Next.js',
       'LangChain',
+      'LangGraph',
       'Hugging Face',
       'nnUNet',
       'Scikit-learn',
@@ -54,9 +56,10 @@ const skills = [
     items: [
       'Generative AI & LLMs',
       'RAG',
+      'Multi-Agent Systems',
       'Deep Learning & Neural Networks',
       '3D Image Segmentation- MONAI & nnUNet',
-      'Fine-tuning (LoRA)',
+      'Fine-tuning (LoRA, QLoRA, PEFT)',
       'Embeddings',
       'Vector Databases',
       'Prompt Engineering',
@@ -69,11 +72,13 @@ const skills = [
       'Git & GitHub',
       'Docker',
       'PostgreSQL',
+      'Redis',
       'MySQL',
       'Linux',
       'AWS',
       'Postman',
       'PG Vector',
+      'ChromaDB',
       'FAISS',
       'VS Code & Jupyter',
 
@@ -119,27 +124,32 @@ const featuredProjects = projects.slice(0, 3)
 
 const experiences = [
   {
+    role: 'AI Engineer Intern — Wise-Tech',
+    period: '3 Months, 2026',
+    summary: 'Built NLP text classification and information extraction pipelines with Hugging Face and FastAPI, and cut average LLM response latency by 30% through prompt engineering and quantization.',
+  },
+  {
     role: 'Upwork — AI, Web Development & SEO',
     period: '2022 – Present',
     summary:
       '100% Job Success. Delivered ML models, NLP systems, automation tools, and client-centered solutions.',
   },
   {
-    role: 'Data Science Intern — Digital Empowerment Network',
-    period: '6 Months',
-    summary: 'Built ML models, EDA dashboards, and decision-ready analytics.',
+    role: 'Full-Stack Web Development Intern — Elevvo Pathways',
+    period: 'Sep 2025 · 1 Month',
+    summary: 'Built component-driven React interfaces and integrated them with backend API endpoints across 3 internal web applications.',
   },
   {
-    role: 'NLP Intern — Elevvo Pathways',
-    period: '1 Month',
-    summary: 'Developed sentiment pipelines, preprocessing flows, and evaluation suites.',
+    role: 'Data Science Intern — Digital Empowerment Network',
+    period: 'Sep 2025 · 1 Month',
+    summary: 'Ran EDA on 10,000+ record datasets and trained ML classification models evaluated on accuracy, precision, recall, and F1-score.',
   },
 ]
 
 const education = [
   {
     school: 'BS Artificial Intelligence — NUML Islamabad',
-    detail: '3.5 CGPA',
+    detail: '3.4 / 4.0 GPA',
   },
   {
     school: 'Intermediate & Matric — FG Public School and College Bagh',
@@ -323,11 +333,21 @@ function HeroSection() {
       </div>
       <div className="flex flex-wrap gap-3 text-sm">
         <a
-          href={cvFile}
-          download="Shahzaib_Shafique_CV.pdf"
+          href={aiEngineerCv}
+          download="Shahzaib_Shafique_AI_Engineer_CV.pdf"
           className="inline-flex items-center gap-2 rounded-full border border-[#64ffda]/70 bg-[#64ffda]/10 px-5 py-2 font-semibold text-[#64ffda] shadow-[0_10px_30px_rgba(100,255,218,0.25)] transition hover:-translate-y-0.5 hover:bg-[#64ffda]/20"
         >
-          Download CV
+          Download CV — AI Engineer
+          <span aria-hidden="true" className="text-base">
+            ↓
+          </span>
+        </a>
+        <a
+          href={webDeveloperCv}
+          download="Shahzaib_Shafique_Web_Developer_CV.pdf"
+          className="inline-flex items-center gap-2 rounded-full border border-[#64ffda]/70 bg-[#64ffda]/10 px-5 py-2 font-semibold text-[#64ffda] shadow-[0_10px_30px_rgba(100,255,218,0.25)] transition hover:-translate-y-0.5 hover:bg-[#64ffda]/20"
+        >
+          Download CV — Web Developer
           <span aria-hidden="true" className="text-base">
             ↓
           </span>
@@ -808,7 +828,7 @@ function App() {
         </Routes>
         {!isDashboardRoute ? <SiteFooter /> : null}
       </div>
-      {/* <ChatWidget /> */}
+      {!isDashboardRoute ? <ChatWidget /> : null}
     </div>
   )
 }
