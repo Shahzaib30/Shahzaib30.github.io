@@ -1,19 +1,33 @@
+# Shahzaib Shafique — AI Portfolio
 
-## Shahzaib Shafique — Minimal AI Portfolio
+Personal portfolio site built with React 19, Vite, TailwindCSS v4, and Framer Motion.
 
-### ✨ Features
-- Dark, centered layout (~800px max width) with smooth scrolling and soft shadows
-- Hero, skills grid, timeline-style projects, experience, education, certifications, and footer
-- Status badges for each project (Completed, In Progress, Coming Soon)
-- Framer Motion fade/slide effects as sections enter the viewport
-- Responsive TailwindCSS design with a single accent color (#64FFDA)
+🌐 Live: [https://shahzaib30.github.io](https://shahzaib30.github.io)
 
-### 🧱 Tech Stack
-- React 19 with Vite
-- TailwindCSS v4 + `@tailwindcss/vite`
-- Framer Motion for micro-interactions
-- ESLint (flat config) for code quality
+## Features
 
-### 📄 License
+- Dark minimal layout with smooth scroll and Framer Motion animations
+- Sections: Hero, Skills, Projects (with status badges), Experience, Education, Certifications
+- Fully responsive with TailwindCSS
+- Fast build with Vite
 
-This project is personal to Shahzaib Shafique. Please do not redistribute the branding or copy without permission.
+## Tech Stack
+
+| Layer | Tools |
+|---|---|
+| Framework | React 19 |
+| Build | Vite |
+| Styling | TailwindCSS v4 |
+| Animation | Framer Motion |
+| Hosting | GitHub Pages |
+
+## Run Locally
+
+git clone https://github.com/Shahzaib30/Shahzaib30.github.io
+cd Shahzaib30.github.io
+npm install
+npm run dev
+
+## License
+
+Personal portfolio — do not redistribute branding or content without permission.
