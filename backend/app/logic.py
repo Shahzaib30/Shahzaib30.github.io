@@ -7,7 +7,7 @@ from langchain_community.retrievers import BM25Retriever
 from langchain_core.documents import Document
 from langchain_core.messages import AIMessage, BaseMessage, HumanMessage
 from langchain_chroma import Chroma
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_community.embeddings import FastEmbedEmbeddings
 from langchain_openai import ChatOpenAI
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langgraph.checkpoint.memory import MemorySaver
@@ -35,12 +35,11 @@ DOCS_PATH = BASE_DIR / "docs" / "business_info.txt"
 UPLOADS_PATH = BASE_DIR / "knowledge_base_uploads"
 VECTOR_DB_PATH = BASE_DIR / "vector_db"
 
-Embedding_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+embeddings = FastEmbedEmbeddings(model_name="BAAI/bge-small-en-v1.5")
 LLM_MODEL = "deepseek-chat"
 DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
 DEEPSEEK_BASE_URL = "https://api.deepseek.com"
 
-embeddings = HuggingFaceEmbeddings(model_name=Embedding_MODEL)
 def _create_vectorstore() -> Chroma:
     return Chroma(
         collection_name="customer_support_kb",

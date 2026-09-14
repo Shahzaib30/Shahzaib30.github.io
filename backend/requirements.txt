@@ -9,11 +9,10 @@ tiktoken
 langchain-community
 langchain-core
 langchain-text-splitters
-langchain-huggingface
-sentence-transformers
 langchain-chroma
 langgraph
 rank-bm25
 grandalf
 python-multipart
 pypdf
+fastembed
