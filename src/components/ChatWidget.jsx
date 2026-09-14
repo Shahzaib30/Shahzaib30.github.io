@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import { Send, MessageCircle, X } from "lucide-react";
 import "../styles/chat-widget.css";
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL ?? "http://localhost:8000";
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL ?? "https://shahzaib-rag-backend.onrender.com";
 
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);

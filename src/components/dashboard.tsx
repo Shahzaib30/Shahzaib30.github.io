@@ -15,7 +15,7 @@ import {
   Users,
 } from "lucide-react";
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL ?? "http://localhost:8000";
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL ?? "https://shahzaib-rag-backend.onrender.com";
 const STORAGE_KEY = "adminToken";
 
 type ViewKey = "overview" | "leads" | "transcripts" | "knowledge";
