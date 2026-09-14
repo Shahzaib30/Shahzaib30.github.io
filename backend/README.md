@@ -1,6 +1,20 @@
+---
+title: Shahzaib Portfolio Backend
+emoji: 🤖
+colorFrom: blue
+colorTo: green
+sdk: docker
+pinned: false
+---
+
+# Shahzaib Portfolio RAG Backend
+
+FastAPI backend powering the AI chatbot on Shahzaib Shafique's portfolio website.
+
 # Backend
 
 This folder contains the FastAPI service that powers the chatbot, lead capture, admin dashboard data, and knowledge-base operations.
+
 
 ## What it does
 

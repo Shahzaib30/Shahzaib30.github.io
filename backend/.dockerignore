@@ -1,0 +1,13 @@
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.env
+.env.*
+*.egg-info
+.git
+.gitignore
+.DS_Store
+app/vector_db
+app/knowledge_base_uploads
+*.log
