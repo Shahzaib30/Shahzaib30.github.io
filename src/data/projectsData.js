@@ -1,140 +1,195 @@
 import tavi1 from '../assets/images/Tavi procedure project 1.jpeg';
-import tavi2 from '../assets/images/Tavi procedure project 6.jpeg';
-import abadirectory1 from '../assets/images/NEXT JS 1.png';
-import abadirectory2 from '../assets/images/NEXT JS 5.png';
-import wordpress1 from '../assets/images/wordpress 1.png';
-import wordpress2 from '../assets/images/wordpress 2.png';
-import deep_transformers1 from '../assets/images/Deep Neural Network transformers 1.png';
-import deep_transformers2 from '../assets/images/Deep Neural Network 3.png';
-import rag_chat from '../assets/images/RAG AGENT/Chat.png';
-import rag_dashboard from '../assets/images/RAG AGENT/Overview.png';
+import tavi2 from '../assets/images/Tavi procedure project 2.jpeg';
+import tavi3 from '../assets/images/Tavi procedure project 3.jpeg';
+import tavi4 from '../assets/images/Tavi procedure project 4.jpeg';
+import tavi5 from '../assets/images/Tavi procedure project 5.jpeg';
+import tavi6 from '../assets/images/Tavi procedure project 6.jpeg';
+
+import wordpressBestMaineVacation from '../assets/images/wordpress/bestmainevacation.png';
+import wordpressLittleAchievers from '../assets/images/wordpress/littleachievers.png';
+import wordpressAlberLegal from '../assets/images/wordpress/alberlegal.png';
+import wordpressAchieversAba from '../assets/images/wordpress/achieversaba.png';
+import wordpressBluebellAba from '../assets/images/wordpress/bluebellaba.png';
+import wordpressAttendHc from '../assets/images/wordpress/attendhc.png';
+
+import instacannHomepage from '../assets/images/instacann/instacann_homepage.png';
+import instacannFindDispensaries from '../assets/images/instacann/finddispensaries.png';
+import instacannDispensariesNear from '../assets/images/instacann/dispensariesnear.png';
+import instacannSingleDispensary from '../assets/images/instacann/singledispensary.png';
+import instacannAdminListing from '../assets/images/instacann/adminlisting.png';
+import instacannNewListing from '../assets/images/instacann/newlisting.png';
+
+import ragOverview from '../assets/images/RAG AGENT/Overview.png';
+import ragChat from '../assets/images/RAG AGENT/Chat.png';
+import ragDashboardLocked from '../assets/images/RAG AGENT/Dashboard Locked.png';
+import ragKnowledgeBase from '../assets/images/RAG AGENT/KnowledgeBase.png';
+import ragLeadManagement from '../assets/images/RAG AGENT/LeadManagement.png';
+import ragLiveTranscripts from '../assets/images/RAG AGENT/Live Transcripts.png';
+
+import supportAgentUi from '../assets/images/ai-support-agent/ui.png';
+import supportAgentDashboard from '../assets/images/ai-support-agent/dashboard.png';
+import supportAgentDiscord from '../assets/images/ai-support-agent/discord agent.png';
+import supportAgentGrafana from '../assets/images/ai-support-agent/grafana dashboard.png';
+import supportAgentSlack from '../assets/images/ai-support-agent/slack_escalation.png';
+import supportAgentRagPipeline from '../assets/images/ai-support-agent/rag pipeline.png';
+
 import rankspotter1 from '../assets/images/rankspotter 1.png';
 import rankspotter2 from '../assets/images/rankspotter 2.png';
-import deep3 from '../assets/images/Deep Neural Network 3.png';
+
 import arch1 from '../assets/images/arch1.jpeg';
 import arch2 from '../assets/images/arch1.png';
 
+import musicPlayerScreenshot from '../assets/images/python-music-player/screenshot.png';
+import qloraResultsChart from '../assets/images/qlora/results-chart.png';
+
 const projects = [
+  {
+    slug: 'instacann-cannabis-directory',
+    title: 'InstaCann — Cannabis Discovery Directory',
+    year: '2026',
+    description: 'Live, production directory platform for discovering cannabis dispensaries, deals, and products — Next.js frontend with a FastAPI backend, deployed and serving real users at instacann.com.',
+    tools: ['Next.js', 'TypeScript', 'FastAPI', 'PostgreSQL', 'Redis', 'Docker', 'Prometheus', 'Grafana'],
+    status: 'Completed',
+    images: [instacannHomepage, instacannFindDispensaries, instacannDispensariesNear, instacannSingleDispensary, instacannAdminListing, instacannNewListing],
+    imageAlt: 'InstaCann homepage, dispensary search, listing detail, and business dashboard',
+    links: [{ label: 'Live Site', href: 'https://instacann.com' }],
+    summary: 'A production dispensary directory that lets people search cannabis businesses, deals, and products by location, with a tiered listing system (Free, Pro, Professional) for business owners. Live at instacann.com.',
+    caseStudy: {
+      problem: 'Cannabis consumers have no single trustworthy place to discover nearby dispensaries, current deals, and product availability, while dispensary owners lack an affordable way to get discovered online given the restrictions most ad platforms place on the industry.',
+      solution: 'Built a decoupled directory platform with a Next.js/TypeScript frontend for fast, SEO-friendly browsing by city and state, and a FastAPI backend handling listings, search, and business data, backed by PostgreSQL with Redis caching. Business owners can claim and upgrade listings through Free, Pro, and Professional tiers for increased visibility. The full stack is containerized with Docker and monitored with Prometheus and Grafana.',
+      impact: 'Runs in production today, serving real dispensary searches by location with daily-updated listings, and gives small cannabis businesses a dedicated discovery channel instead of relying on generic directories or restricted ad platforms.'
+    },
+    highlights: [
+      'Live production platform at instacann.com',
+      'Next.js + FastAPI directory with location-based search',
+      'Tiered business listings (Free / Pro / Professional)'
+    ],
+  },
   {
     slug: 'made-multi-agent-decision-engine',
     title: 'MADE — Multi-Agent Decision Engine',
     year: '2026',
-    description: 'Production-grade multi-agent system orchestrating 5 specialist agents through a LangGraph state machine with crash recovery and human-in-the-loop gating.',
-    tools: ['LangGraph', 'LangSmith', 'FastAPI', 'Next.js', 'Redis', 'ChromaDB', 'PostgreSQL'],
-    status: 'Completed',
+    description: 'In-progress multi-agent system orchestrating 5 specialist agents through a LangGraph state machine with crash recovery and human-in-the-loop gating.',
+    tools: ['LangGraph', 'LangSmith', 'FastAPI', 'Next.js', 'Redis', 'ChromaDB', 'PostgreSQL', 'E2B Sandbox'],
+    status: 'In Progress',
+    images: [],
     imageAlt: 'Multi-agent decision engine architecture with specialist agents and consensus voting',
     github: 'https://github.com/Shahzaib30/Multi-Agent-Decision-Engine',
-    summary: 'A production-grade multi-agent decision system with 5 specialist agents — Research, Reasoning, Critic, Risk, and Synthesizer — orchestrated via a LangGraph state machine, built for automated financial analysis, competitive intelligence, and customer support workflows. Email me to get a demo.',
+    summary: 'A multi-agent decision system under active development — 5 specialist agents (Research, Reasoning, Critic, Risk, Synthesizer) coordinated via a LangGraph state machine, being built in phases from agents through orchestration, consensus, infrastructure, observability, and finally the Next.js dashboard. Email me to get a demo of the current build.',
     caseStudy: {
       problem: 'Complex decision-making tasks like financial analysis and competitive intelligence require synthesizing multiple perspectives, weighing conflicting evidence, and escalating high-stakes calls to a human — something a single LLM call handles poorly and without auditability.',
-      solution: 'Architected a LangGraph state machine coordinating 5 specialist agents (Research, Reasoning, Critic, Risk, Synthesizer) with crash recovery. Built a custom consensus engine using structured debate protocols and confidence-weighted voting, backed by three-tier memory (Redis, ChromaDB, PostgreSQL), human-in-the-loop Slack gating for high-risk decisions, and full observability via OpenTelemetry, Prometheus, and Grafana.',
-      impact: 'Delivers auditable, multi-perspective decisions instead of single-shot LLM guesses, with automatic escalation to a human reviewer when agent confidence is low, and full tracing of how each decision was reached across the agent debate.'
+      solution: 'Building a LangGraph state machine that coordinates 5 specialist agents running concurrently, with a custom consensus engine using structured debate protocols and confidence-weighted voting. The architecture layers in three-tier memory (Redis working memory, ChromaDB episodic, PostgreSQL decision store), an E2B sandbox and Tavily search as agent tools, human-in-the-loop Slack gating for high-risk decisions, and full observability via OpenTelemetry, Prometheus, and Grafana. Development follows 6 phases: agents, orchestration, consensus, infrastructure, platform, and the live-streaming frontend.',
+      impact: 'The backend orchestration, consensus engine, and memory layers are implemented and runnable via docker-compose; the Next.js dashboard with live agent streaming is the current focus. Goal: auditable, multi-perspective decisions instead of single-shot LLM guesses, with automatic escalation when agent confidence is low.'
     },
     highlights: [
       '5-agent LangGraph state machine with crash recovery',
       'Confidence-weighted consensus engine with structured debate',
-      'Three-tier memory and full OpenTelemetry observability'
+      'Three-tier memory and full OpenTelemetry/Prometheus/Grafana observability'
     ],
   },
   {
     slug: 'qlora-rag-hybrid-llm',
     title: 'QLoRA Fine-tuned LLM with RAG Hybrid Integration',
     year: '2026',
-    description: 'Fine-tuned Mistral-7B with QLoRA 4-bit quantization and benchmarked it against RAG-only and hybrid fine-tune+RAG configurations.',
-    tools: ['Python', 'QLoRA', 'PEFT', 'Hugging Face', 'LangChain', 'FastAPI'],
-    status: 'Completed',
-    imageAlt: 'Benchmark comparison of RAG-only, fine-tune-only, and hybrid LLM configurations',
-    github: 'https://github.com/Shahzaib30/qlora-rag-chatbot',
-    summary: 'Fine-tuned Mistral-7B using QLoRA with 4-bit quantization to cut GPU memory usage by 75%, then benchmarked RAG-only, fine-tune-only, and hybrid configurations against each other. Email me to get a demo.',
+    description: 'In-progress benchmark of a QLoRA 4-bit fine-tuned Mistral-7B against a RAG-augmented hybrid configuration on 100k real doctor-patient conversations.',
+    tools: ['Python', 'PyTorch', 'QLoRA', 'PEFT', 'TRL', 'Hugging Face', 'LangChain', 'ChromaDB', 'RAGAS', 'FastAPI'],
+    status: 'In Progress',
+    images: [qloraResultsChart],
+    imageAlt: 'Benchmark chart comparing base, fine-tuned, and fine-tuned+RAG configurations on ROUGE-L, BERTScore, and latency',
+    github: 'https://github.com/Shahzaib30/QLora-Rag-Chatbot',
+    summary: 'Fine-tuned Mistral-7B-Instruct on 100k real doctor-patient conversations (ChatDoctor-HealthCareMagic-100k) using QLoRA 4-bit quantization, then built a benchmark harness comparing the base model, the fine-tuned model, and a fine-tuned+RAG hybrid on medical Q&A. Email me to get a demo.',
     caseStudy: {
-      problem: 'Full fine-tuning of a 7B-parameter model is GPU-memory-prohibitive for most teams, and it is unclear upfront whether fine-tuning, retrieval-augmented generation, or a hybrid of both gives the best domain accuracy for a given use case.',
-      solution: 'Fine-tuned Mistral-7B with QLoRA 4-bit quantization, cutting GPU memory requirements by 75% versus full fine-tuning. Built a controlled benchmark harness comparing RAG-only, fine-tune-only, and a hybrid fine-tune-plus-RAG configuration on the same domain evaluation set.',
-      impact: 'The hybrid configuration achieved the highest domain accuracy of the three approaches, giving a concrete, benchmarked answer to when fine-tuning versus RAG versus both is worth the extra engineering cost.'
+      problem: 'Full fine-tuning of a 7B-parameter model is GPU-memory-prohibitive for most teams, and it is unclear upfront whether fine-tuning, retrieval-augmented generation, or a hybrid of both gives the best domain accuracy for a medical Q&A use case.',
+      solution: 'Fine-tuned Mistral-7B-Instruct with QLoRA 4-bit quantization (rank 16, alpha 32), cutting GPU memory requirements by roughly 75% versus full fine-tuning and making it trainable on Kaggle\'s dual T4 GPUs. Built an evaluation harness (ROUGE-L, BERTScore, RAGAS, latency) comparing three configurations: the base model, the QLoRA fine-tuned model, and fine-tuned+hybrid BM25/dense RAG with a BGE reranker.',
+      impact: 'Initial benchmarks show QLoRA fine-tuning alone delivers the largest jump in answer quality (ROUGE-L 0.135 → 0.188, BERTScore F1 0.835 → 0.852), while layering RAG on top added latency without a clear quality gain on this evaluation set — a concrete, measured answer to "fine-tune vs. RAG vs. both" rather than a guess. Benchmarking and the RAGAS faithfulness pass are still being extended.'
     },
     highlights: [
       '75% GPU memory reduction via QLoRA 4-bit quantization',
-      'Controlled benchmark: RAG-only vs fine-tune-only vs hybrid',
-      'Hybrid approach achieved the highest domain accuracy'
+      'Controlled benchmark: base vs. fine-tuned vs. fine-tuned+RAG',
+      'Fine-tuning alone gave the biggest measured accuracy gain so far'
     ],
   },
   {
     slug: 'enterprise-rag-lead-gen',
     title: 'Enterprise RAG System & Lead-Generation AI Agent',
     year: '2026',
-    description: 'Autonomous multi-agent backend engine integrated with portable micro-frontend web widgets and real-time database tracking dashboards.',
-    tools: ['FastAPI', 'LangGraph', 'PostgreSQL', 'PgVector', 'Vanilla JS', 'React'],
+    description: 'Autonomous RAG backend integrated with a portable micro-frontend chat widget and a real-time admin dashboard for leads, transcripts, and knowledge base control.',
+    tools: ['FastAPI', 'LangGraph', 'LangChain', 'PostgreSQL', 'PgVector', 'Next.js', 'React'],
     status: 'Completed',
-    image: rag_chat,
-    images: [rag_chat, rag_dashboard],
-    imageAlt: 'Enterprise RAG system interface with live admin data streaming',
-    summary: 'A portable, cross-platform micro-frontend chat widget designed to inject seamlessly into third-party web environments (WordPress, React) via an asynchronous script snippet. Email me to get a live interactive sandbox demo. You can see it implemented in my personal Website Portfolio by Chat Widget at Right bottom corner.',
+    images: [ragOverview, ragChat, ragDashboardLocked, ragKnowledgeBase, ragLeadManagement, ragLiveTranscripts],
+    imageAlt: 'Enterprise RAG system chat widget and admin dashboard',
+    github: 'https://github.com/Shahzaib30/advanced-rag-assistant',
+    summary: 'A portable, cross-platform micro-frontend chat widget designed to inject seamlessly into third-party web environments (WordPress, React) via an asynchronous script snippet. You can see it implemented live on this portfolio — the chat widget at the bottom-right corner. Email me to get a live interactive sandbox demo.',
     caseStudy: {
       problem: 'Enterprise business portals experience severe conversion drop-offs due to traditional high-friction web forms. Concurrently, native AI integrations often suffer from context drift, state tracking failures over dynamic multi-turn sessions, security leaks of internal knowledge bases, and layout reflow bugs when executed inside third-party content management systems like WordPress.',
-      solution: 'Architected a completely decoupled system featuring a sandboxed, vanilla asynchronous script micro-frontend that mounts onto a target application. The widget securely communicates with a stateful Python backend powered by LangGraph state machines. Implemented structured intent routing logic to instantly separate casual greetings from complex queries, dynamic context window management to preserve multi-turn history, and advanced semantic RAG pipelines using dense vector database arrays.',
-      impact: 'Delivers a highly secure lead-generation infrastructure that accurately parses unstructured customer data, handles conversational state variables flawlessly, and generates automated session titles. Business owners get complete operational transparency via an isolated, token-authenticated admin control panel tracking PostgreSQL lead metrics, system connection latencies, and end-to-end user transcripts with zero layout interference.'
+      solution: 'Architected a decoupled system featuring a sandboxed, vanilla asynchronous script micro-frontend that mounts onto a target application. The widget communicates with a stateful Python backend powered by LangGraph-routed RAG. Implemented structured intent routing to separate casual greetings from complex queries, dynamic context window management to preserve multi-turn history, and semantic RAG over a persistent, admin-editable knowledge base.',
+      impact: 'Delivers a secure lead-generation widget that parses unstructured customer data, handles conversational state flawlessly, and generates automated session titles. Business owners get complete operational transparency via a token-authenticated admin console tracking PostgreSQL lead metrics, live transcripts, and knowledge-base uploads with zero layout interference on the host page.'
     },
     highlights: [
-      'LangGraph-driven state machines for robust intent routing',
-      'Secure admin dashboard with live PostgreSQL metrics',
+      'LangGraph-routed RAG pipeline with a persistent knowledge base',
+      'Token-authenticated admin dashboard with live leads and transcripts',
       'Sandboxed JS widget with zero layout reflow impact',
     ],
   },
   {
-    slug: 'tavi-planning-system',
-    title: 'TAVI Planning System using Deep Learning',
+    slug: 'ai-support-agent',
+    title: 'AI Support Agent — Multi-Channel RAG with Human-in-the-Loop',
     year: '2026',
-    description: 'Automated clinical-grade TAVI pre-surgical planning platform leveraging custom nnUNet architectures for high-precision 3D volumetric segmentation. You can Email me to request a case study video demo.',
-    tools: ['nnUNet', 'PyTorch', '3D Segmentation', 'Medical Imaging', 'Hugging Face'],
+    description: 'Production-grade AI customer support system serving Web, Discord, WhatsApp, and Telegram from one channel-agnostic pipeline with hybrid RAG and Slack-based human escalation.',
+    tools: ['FastAPI', 'FAISS', 'BM25', 'PostgreSQL', 'Redis', 'n8n', 'Next.js', 'Docker', 'Prometheus', 'Grafana'],
     status: 'Completed',
-    images: [tavi1, tavi2],
-    imageAlt: '3D cardiac visualization and aortic annulus extraction rendered from CTA scans',
-    summary: 'A point-and-click planning cockpit for cardiologists that processes raw CTA DICOM datasets, segments complex anatomical structural boundaries, and outputs sub-millimeter prosthetic valve sizing variables. Email me to request a case study video demo.',
+    images: [supportAgentUi, supportAgentDashboard, supportAgentDiscord, supportAgentGrafana, supportAgentSlack, supportAgentRagPipeline],
+    imageAlt: 'AI support agent chat UI, admin dashboard, Discord bot, Grafana metrics, Slack escalation, and RAG pipeline',
+    github: 'https://github.com/Shahzaib30/ai-support-agent',
+    links: [{ label: 'Watch Demo', href: 'https://youtu.be/OLsJ4h6FXnM?si=YQyzQk7WxpNimjY7' }],
+    summary: 'A channel-agnostic AI support pipeline that answers customers on Web, Discord, WhatsApp, and Telegram using hybrid RAG (FAISS dense + BM25 sparse, RRF-fused, cross-encoder reranked), and automatically escalates low-confidence or frustrated conversations to a human over Slack. Email me to get a demo.',
     caseStudy: {
-      problem: 'Surgical preparation teams spent hours manually isolating complex boundaries across hundreds of 2D cross-sectional Computed Tomography Angiography (CTA) slices for Transcatheter Aortic Valve Implantation (TAVI) candidates. This manual measurement loop introduced high human error risks, subjective geometric calculation variations, and critical alignment discrepancies when determining prosthetic valve diameters.',
-      solution: 'Developed an automated deep learning pipeline that processes multi-format raw DICOM medical files. Configured a custom volumetric nnUNet semantic segmentation model optimized to extract precise 3D topological representations of the aortic root and heart valves. Built mesh post-processing topology checks to remove pixel noise, designed customized geometric sizing heuristics for spatial alignment tracking, and integrated open-weight language models via Hugging Face to process structural dimensions into comprehensive diagnostic reporting text.',
-      impact: 'Successfully achieved sub-2mm measurement variances on validation datasets compared to expert gold-standard ground truths. The platform completely eliminated manual scanning overheads, optimized pre-surgical structural planning cycle latencies by over 75%, and provided cardiac surgeons with highly accurate, auditable 3D anatomical overlays and automated diagnostic reporting drafts.'
+      problem: 'Support bots that only do single-pass vector search miss exact keyword matches, and most have no safety net — they keep answering confidently even when the customer is frustrated or the retrieval confidence is low, with no path back to a human.',
+      solution: 'Built a single core.agent pipeline consumed by four channel connectors (Web, Discord, WhatsApp, Telegram), each normalizing its payload into one shared message shape. Retrieval runs a 4-stage pipeline: query condensation, parallel dense (FAISS) and sparse (BM25) search fused via Reciprocal Rank Fusion, then cross-encoder reranking before generation. An explicit conversation-state machine (ai_active → human_pending → human_active → resolved) escalates to a Slack thread on explicit request, three consecutive negative-sentiment messages, or low retrieval confidence, and relays the agent reply back to the original channel via n8n.',
+      impact: 'Delivers grounded answers instead of hallucinated ones, with webhook idempotency, Redis-cached responses, and full Prometheus/Grafana observability across 8 containerized services — turning a typical black-box chatbot into an auditable, human-backed support system.'
     },
     highlights: [
-      'nnUNet-based volumetric segmentation with automated QA',
-      'Sub-2mm measurement variance versus expert annotations',
-      'Auto-generated clinical reporting using LLMs',
+      'Hybrid FAISS + BM25 retrieval with RRF fusion and cross-encoder reranking',
+      'Explicit state machine with Slack human-in-the-loop escalation',
+      'One agent, four channels — Web, Discord, WhatsApp, Telegram'
     ],
   },
   {
-    slug: 'sql-nexus',
-    title: 'SQL-NEXUS — Agentic DB Query Generator',
+    slug: 'tavi-planning-system',
+    title: 'TAVI-Net — AI Pre-Operative Planning for TAVI',
     year: '2026',
-    description: 'Agentic workflow converting conversational English text queries into structured database operations programmatically.',
-    tools: ['Python', 'LLMs', 'SQL', 'Schema Analysis', 'Guardrails'],
-    status: 'In Progress',
-    images: [],
-    imageAlt: 'Agent converting natural language to SQL command flows',
-    github: 'https://github.com/Shahzaib30/SQL-NEXUS',
-    summary: 'An advanced agentic database interface parsing plain-text prompts into secure executable statements via continuous loop validation layers. Email me to get a demo.',
+    description: 'Uploads a cardiac CT scan and returns an automatic 3D segmentation, annulus/valve measurements, and an LLM-assisted review — research/educational, not a certified medical device.',
+    tools: ['PyTorch', 'MONAI', '3D U-Net', 'React Three Fiber', 'Ollama', 'FastAPI', 'Docker'],
+    status: 'Completed',
+    images: [tavi1, tavi2, tavi3, tavi4, tavi5, tavi6],
+    imageAlt: 'TAVI-Net landing page, interactive 3D segmentation viewer, and analysis results',
+    github: 'https://github.com/Shahzaib30/tavi-planning-system',
+    summary: 'Upload a raw cardiac CT volume (.nii.gz) and TAVI-Net segments the aorta, aortic root, valve, left ventricle, and annulus with a 3D U-Net trained on MONAI, reconstructs an interactive 3D mesh viewable in the browser, and produces an LLM-assisted clinical summary via a local Ollama model. Research/educational project — not for clinical use. Email me to request a demo video.',
     caseStudy: {
-      problem: 'Operational stakeholders and non-technical business analytics teams face critical data bottlenecks when waiting on manual SQL script compilation. Conversely, opening raw database interfaces to generic automated interfaces introduces catastrophic risks of malicious SQL injection vectors, syntax compilation structural crashes, and unintended database state execution errors.',
-      solution: 'Engineered a highly intelligent, schema-aware agentic runtime that interprets plain English text queries using semantic intent matching. The pipeline maps queries against a serialized database metadata cache, generates candidate SQL scripts, and applies an iterative multi-stage syntax correction loop. The system validates syntax correctness against strict rule boundaries, schema constraints, and predefined security guardrails before processing elements.',
-      impact: 'Enables reliable, zero-code data extraction capabilities for operational business users while protecting critical production database tables from unauthorized schema manipulation. The system effectively reduces analytical data request loops from days down to fractions of a second while outputting transparent, human-readable execution steps for technical compliance audits.'
+      problem: 'Surgical preparation teams spend hours manually isolating anatomical boundaries across hundreds of CT slices for TAVI candidates — a manual process with high human-error risk, subjective geometric variation, and alignment discrepancies when sizing prosthetic valves.',
+      solution: 'Built a 3D U-Net (MONAI) trained on the TAVRP-PL dataset (578 CT scans derived from TotalSegmentator) to segment 8 anatomical classes, then measures annulus diameter and screens for aortic stenosis from the resulting mask. Segmentations are reconstructed into a lightweight .glb mesh rendered with an interactive React Three Fiber viewer — rotate, zoom, and inspect directly in the browser. A local Ollama model (phi3:mini) turns the raw measurements into a clinician-readable review, with a deterministic rule-based fallback if the LLM is unavailable. The API contract is typed with Pydantic and covered by a pytest suite; the whole stack ships via Docker Compose.',
+      impact: 'Reaches a mean Dice of 0.849 across five structures on held-out test scans (aorta 0.944, left ventricle 0.918), with the large structures segmenting very well and the smaller valve/annulus structures — which cover only a few hundred voxels — scoring lower, as expected. Turns a multi-hour manual measurement workflow into an upload-and-review loop, with the LLM review giving surgeons a readable summary alongside the raw numbers.'
     },
     highlights: [
-      'Schema-aware structural prompt compilation paths',
-      'Multi-stage iterative SQL query correction loops',
-      'Rigorous execution safety boundaries and constraints'
-    ]
+      '3D U-Net (MONAI) segmentation — mean Dice 0.849 across 5 structures',
+      'Interactive React Three Fiber 3D viewer for the segmented mesh',
+      'Local LLM (Ollama) clinical review with a deterministic fallback'
+    ],
   },
   {
     slug: 'rankspotter-serp-tracker',
     title: 'RankSpotter – Real-time SERP Tracker',
     year: '2025',
-    description: 'Production-grade keyword rank monitoring infrastructure featuring scalable asynchronous data pipelines and React control surfaces.',
+    description: 'Production-grade keyword rank monitoring infrastructure featuring scalable asynchronous data pipelines and React control surfaces — live at rankspotter.com.',
     tools: ['React', 'Flask', 'PostgreSQL', 'Scraping Engines', 'Supabase'],
-    status: 'In Progress',
+    status: 'Completed',
     images: [rankspotter1, rankspotter2],
     imageAlt: 'Analytics interface charting localized search visibility indexes and position deltas',
-    summary: 'Continuous rank analytics stack with automated volatility alert mechanics, contextual competitor maps, and immutable tracking proof captures. Email me to get a demo.',
+    links: [{ label: 'Live Site', href: 'https://rankspotter.com' }],
+    summary: 'Continuous rank analytics stack with automated volatility alert mechanics, contextual competitor maps, and immutable tracking proof captures. Live at rankspotter.com — email me to get a demo of the full dashboard.',
     caseStudy: {
       problem: 'Search engine optimization teams struggle to establish clear visibility adjustments due to slow manual tracking processes, silent algorithmic search placement adjustments, and extensive proxy connection throttling limits. Traditional scraping architectures frequently drop performance when handling complex dynamic web elements and anti-bot data verification locks.',
-      solution: 'Engineered an (always-on) keyword rank monitoring ecosystem driven by a highly scalable, asynchronous Flask data pipeline backend. Configured a distributed scraping worker pool managing headless Chromium microservices across rotating proxy networks to capture pixel-perfect search engine results pages (SERPs). Integrated multi-tenant role-based access control (RBAC) via Supabase Auth and coupled it with an automated PostgreSQL storage loop tracking layout variations.',
+      solution: 'Engineered an always-on keyword rank monitoring ecosystem driven by a highly scalable, asynchronous Flask data pipeline backend. Configured a distributed scraping worker pool managing headless Chromium microservices across rotating proxy networks to capture pixel-perfect search engine results pages (SERPs). Integrated multi-tenant role-based access control (RBAC) via Supabase Auth and coupled it with an automated PostgreSQL storage loop tracking layout variations.',
       impact: 'Successfully managed continuous data capture cycles covering over 12,000 tracked keywords, instantly pushing anomaly alerts, competitor trend overlays, and immutable layout screenshot evidence to users. Replaced labor-intensive tracking checks with responsive React data dashboards, driving down total technical visibility assessment time from days to a few seconds.'
     },
     highlights: [
@@ -150,7 +205,7 @@ const projects = [
     description: 'Deep neural acoustic architecture classifying spoken sentiment vectors with 90%+ testing accuracy scores.',
     tools: ['Audio Processing', 'CNNs', 'BiLSTM', 'PyTorch', 'Triton Server'],
     status: 'Completed',
-    images: [deep3],
+    images: [],
     imageAlt: 'Acoustic waveform spectrogram visualizations processed inside feature mapping nodes',
     github: 'https://github.com/Shahzaib30/Speech-Emotion-Recognition-Using-Deep-Learning',
     summary: 'Built a multi-task CNN + BiLSTM pipeline that extracts tone, emotional velocity, and physiological stress signatures from live audio streams. Email me to get a demo.',
@@ -166,26 +221,6 @@ const projects = [
     ],
   },
   {
-    slug: 'ai-resume-reviewer',
-    title: 'AI Resume Reviewer',
-    year: '2026',
-    description: 'Automated linguistic evaluation platform evaluating professional texts against ATS filtering scoring parameters.',
-    tools: ['Python', 'LLMs', 'Information Extraction', 'NLP UI'],
-    status: 'In Progress',
-    imageAlt: 'Linguistic evaluation dashboard annotating resumes with compliance scoring markers',
-    summary: 'Parses raw resume documents, maps structural data bounds against target requirements, and suggests explicit text optimization changes. Email me to get a demo.',
-    caseStudy: {
-      problem: 'Top-tier candidates frequently face early automated rejections within enterprise applicant filtering tools due to minor structural document parsing errors. Unoptimized resume styling formats, low-density semantic technical descriptions, and implicit phrasing gaps often prevent human evaluators from accurately recognizing relevant skill configurations.',
-      solution: 'Designed a comprehensive text layout processing engine that extracts unformatted data fields from multiple file extensions. The pipeline isolates distinct linguistic blocks, evaluating document structure density parameters against customizable candidate matrices. Integrated customized information extraction routines that systematically score text sections for keyword distribution, strong action-verb alignment, and quantified milestone reporting patterns.',
-      impact: 'Builds an analytical, data-driven optimization layer that scores candidate material with highly transparent adjustment parameters. The application processes raw files to generate high-priority contextual rewrites, localized ATS compatibility updates, and interview-readiness metrics, transforming typical black-box evaluation systems into an explicit self-serve roadmap.'
-    },
-    highlights: [
-      'Quantified ATS structural parsing metric engines',
-      'Algorithmic career track formatting recommendations',
-      'Automated semantic segment alignment analytics'
-    ],
-  },
-  {
     slug: 'arch-ai-setup',
     title: 'Arch AI Setup (Hyprland & Dotfiles)',
     year: '2026',
@@ -193,7 +228,8 @@ const projects = [
     tools: ['Linux', 'Hyprland', 'QML', 'Shell Scripting'],
     status: 'Public',
     images: [arch1, arch2],
-    imageAlt: 'Desktop setup screenshots and dotfiles preview',
+    imageAlt: 'Arch Linux Hyprland desktop and dotfiles repository preview',
+    github: 'https://github.com/Shahzaib30/arch-ai-setup',
     summary: 'A highly optimized, reproducible Unix installation layer maximizing multi-task window layout speed and local machine learning execution loops. Email me to get a demo.',
     caseStudy: {
       problem: 'Heavy, bloated out-of-the-box operating system environments consume massive amounts of system memory and processor threads. This configuration creates micro-stutters, degrades local code rendering speeds, and bottlenecks localized execution loops when training dense deep learning architectures and processing continuous GPU background tasks.',
@@ -206,89 +242,46 @@ const projects = [
     title: 'Python Music Player',
     year: '2023',
     description: 'Clean desktop application for local media directory indexation, metadata collection, and fluid audio tracking mechanisms.',
-    tools: ['Python', 'Tkinter', 'SQLite', 'Mutagen'],
+    tools: ['Python', 'CustomTkinter', 'Pygame'],
     status: 'Completed',
-    imageAlt: 'Desktop interface panel handling local file playback queues and media organization metrics',
+    images: [musicPlayerScreenshot],
+    imageAlt: 'Desktop music player interface with playback controls and playlist',
     github: 'https://github.com/Shahzaib30/music-player-in-python-Gui',
-    summary: 'A clean standalone desktop tool designed for local cataloging, audio tag indexing, and playback execution. Email me to get a demo.',
+    summary: 'A clean, beginner-friendly standalone desktop music player built with Python, CustomTkinter, and Pygame — folder-based library loading with play, pause, next, and previous controls. Email me to get a demo.',
     caseStudy: {
-      problem: 'Mainstream content streaming engines introduce massive framework application bloat, rely on continuous internet connectivity, and lack high-performance internal indexing utilities for organizing vast, disconnected local audio directories without encountering tracking data corruption.',
-      solution: 'Developed a responsive desktop media management tool using a highly optimized Python architecture. Configured an internal SQLite indexing model to index file system directories, integrated Mutagen metadata extraction hooks to parse complex file tags, and structured custom event listeners inside a lightweight Tkinter dark-palette UI interface.',
-      impact: 'Delivered a lightning-fast, zero-network desktop application that scans, updates, and searches through massive local music databases instantly. Achieved absolute data state preservation across system reboots, ensuring localized playlists, directory configurations, and track parameters load cleanly with zero memory overhead.'
+      problem: 'Mainstream content streaming engines introduce massive framework application bloat, rely on continuous internet connectivity, and lack simple, hackable playback tools for people who just want to point an app at a folder of local MP3s.',
+      solution: 'Developed a responsive desktop media player using Python, CustomTkinter for a modern-looking UI, and Pygame for audio playback. The app loads an entire folder of MP3s, lets the user double-click or select-and-play a track, and move between tracks with Next/Previous — with a graceful fallback to text buttons if icon assets are missing.',
+      impact: 'A lightweight, zero-network desktop application that plays local music libraries instantly with a clean, modern interface, built as an approachable example of a complete Python desktop app for beginners.'
     }
   },
   {
     slug: 'wordpress-custom-websites',
-    title: 'WordPress Custom Websites',
+    title: 'Custom WordPress Websites & SEO',
     year: '2026',
-    description: 'Custom WordPress website builds focused on performance, modern layouts, SEO structure, and simple editing workflows for clients.',
+    description: 'Custom WordPress website builds for real clients — ABA therapy providers, home care, legal, and travel — focused on performance, modern layouts, and SEO structure.',
     tools: ['WordPress', 'Elementor', 'SEO', 'UI Design', 'Performance'],
     status: 'Public',
-    image: wordpress1,
-    images: [wordpress1, wordpress2],
-    imageAlt: 'Custom WordPress website design and homepage layout preview',
-    summary: 'A portfolio of custom WordPress builds designed to look clean, load fast, and give business owners an easy editing experience without needing technical knowledge. The work focuses on converting plain content into polished client websites with structured pages, responsive sections, and SEO-friendly layout decisions. I handle the visual direction, spacing, sections, and content presentation so the site feels modern and professional while still being easy for the client to manage after launch. The goal is to reduce friction for small businesses that want a stronger online presence without the overhead of a complex custom application. This project category also reflects my ability to work across both design and implementation, combining practical website strategy with front-end polish, speed improvements, and content organization. It is built for real-world client delivery rather than just experimentation, and it demonstrates how I adapt WordPress into a more refined, branded solution for service businesses, agencies, and personal brands.',
+    image: wordpressBestMaineVacation,
+    images: [wordpressBestMaineVacation, wordpressLittleAchievers, wordpressAlberLegal, wordpressAchieversAba, wordpressBluebellAba, wordpressAttendHc],
+    imageAlt: 'Custom WordPress client website homepages',
+    links: [
+      { label: 'Best Maine Vacation', href: 'https://bestmainevacation.com' },
+      { label: 'Little Achievers ABA', href: 'https://littleachieversaba.com' },
+      { label: 'Alber Legal', href: 'https://alberlegal.com' },
+      { label: 'Achievers ABA Therapy', href: 'https://achieversaba.com' },
+      { label: 'Bluebell ABA', href: 'https://bluebellaba.com' },
+      { label: 'Attend HomeCare', href: 'https://attendhc.com' },
+    ],
+    summary: 'A portfolio of custom WordPress builds for real clients — including Bluebell ABA, Little Achievers, Achievers ABA Therapy, The Alber Firm (legal), Attend HomeCare, and Best Maine Vacation (travel) — designed to look clean, load fast, and give business owners an easy editing experience without needing technical knowledge. I handle the visual direction, spacing, sections, and content presentation so each site feels modern and professional while still being easy for the client to manage after launch.',
     caseStudy: {
       problem: 'Many WordPress websites are built quickly with generic templates, weak visual hierarchy, and poor page performance, which makes it hard for businesses to stand out or convert visitors. Clients often struggle with editing content later because the structure is too messy or overly technical.',
-      solution: 'Designed and customized WordPress websites with a cleaner layout system, responsive section structure, and client-friendly editing flow. I focused on balancing design quality with practical maintainability so each site can be updated easily without breaking the layout. The build process emphasizes reusable sections, strong typography, and SEO-aware organization.',
-      impact: 'The result is a set of websites that feel more professional, load more smoothly, and are easier for non-technical clients to manage. Businesses get a stronger online presence, better presentation of services, and a website structure that supports growth instead of getting in the way.'
+      solution: 'Designed and customized WordPress websites across healthcare (ABA therapy), legal, home care, and travel niches, with a cleaner layout system, responsive section structure, and client-friendly editing flow. I focused on balancing design quality with practical maintainability so each site can be updated easily without breaking the layout, emphasizing reusable sections, strong typography, and SEO-aware organization.',
+      impact: 'The result is a set of live client websites that feel more professional, load more smoothly, and are easier for non-technical clients to manage — giving each business a stronger online presence and a site structure that supports growth instead of getting in the way.'
     },
     highlights: [
-      'Custom client-friendly WordPress layouts',
+      'Live client sites across healthcare, legal, and travel niches',
       'SEO-aware structure and responsive design',
       'Fast editing workflow for non-technical users'
-    ]
-  },
-  {
-    slug: 'deep-neural-networks',
-    title: 'Deep Neural Networks & Transformers',
-    year: '2026',
-    description: 'Research and experimentation hub focused on deep neural network architectures, transformers, attention mechanisms, and practical evaluation workflows.',
-    tools: ['Python', 'PyTorch', 'Transformers', 'Hugging Face', 'Metrics'],
-    status: 'In Progress',
-    images: [deep_transformers1, deep_transformers2],
-    imageAlt: 'Neural network experimentation workspace with transformer models and training logs',
-    github: 'https://github.com/Shahzaib30/Transformers',
-    links: [
-      {
-        label: 'Deep Neural Network Repo',
-        href: 'https://github.com/Shahzaib30/Deep-Neural-Network',
-      },
-      {
-        label: 'Transformers Repo',
-        href: 'https://github.com/Shahzaib30/Transformers',
-      },
-    ],
-    summary: 'A fast-prototyping collection used to test deep neural network training routines, transformer stacks, evaluation matrices, and model layer metrics. Email me to get a demo.',
-    caseStudy: {
-      problem: 'Machine learning engineers often run into performance regressions when building custom neural and language pipelines because they lack structured testing protocols, standardized code components, and objective, data-backed metrics to measure trade-offs between accuracy, latency, and stability. Transformer models are especially sensitive to tokenization choices, attention depth, data quality, and training configuration, which makes experimentation hard to compare without a disciplined setup.',
-      solution: 'Built a focused research repository for deep neural networks and transformer-based experiments using Python and PyTorch. The project organizes model prototypes, training utilities, evaluation scripts, and experiment tracking patterns so every run can be compared fairly. I used Hugging Face components to test different attention-based architectures, batch evaluation routines, and structured text datasets, while keeping the code modular enough to swap backbones, hyperparameters, and metrics without rewriting the entire pipeline.',
-      impact: 'The result is an organized AI experimentation hub that replaces guesswork with reproducible logs, cleaner model comparisons, and reusable training patterns. It speeds up iteration on transformer-based systems, makes debugging easier, and gives me a dependable foundation for future production-grade NLP and deep learning work. Instead of isolated notebooks or one-off scripts, the repository behaves like a structured engineering lab for testing modern neural architectures.'
-    },
-    highlights: [
-      'Transformer and attention architecture experiments',
-      'Reproducible training and evaluation workflows',
-      'Reusable deep learning research scaffolding'
-    ]
-  },
-  {
-    slug: 'fullstack-directory-website',
-    title: 'Full-Stack Directory Website',
-    year: '2026',
-    description: 'Scalable business/listing directory platform built with a Next.js frontend and a FastAPI backend, deployed on an AWS server.',
-    tools: ['Next.js', 'React', 'FastAPI', 'PostgreSQL', 'AWS'],
-    status: 'In Progress',
-    imageAlt: 'Full-stack directory website interface showing listings and search',
-    summary: 'A full-stack directory web application with a Next.js frontend for fast, SEO-friendly browsing and a FastAPI backend handling listings, search, and data operations, deployed on an AWS server. Email me to get a demo.',
-    caseStudy: {
-      problem: 'Directory-style platforms need to serve large volumes of searchable listings quickly, rank well in search engines, and stay maintainable as the catalog and traffic grow, which is difficult with tightly coupled, non-scalable architectures.',
-      solution: 'Building a decoupled architecture with a Next.js frontend for server-rendered, SEO-friendly pages and a FastAPI backend exposing clean REST endpoints for listings, filtering, and search. The backend is deployed on an AWS server with a PostgreSQL database, structured for horizontal scaling as data volume increases.',
-      impact: 'Aims to deliver a fast, SEO-friendly directory experience with a clean separation between frontend and backend, making it straightforward to scale traffic, extend listing categories, and add new features without reworking the core architecture.'
-    },
-    highlights: [
-      'Next.js frontend optimized for SEO and speed',
-      'FastAPI backend with clean REST endpoints',
-      'Deployed on AWS with a scalable architecture'
     ]
   }
 ];

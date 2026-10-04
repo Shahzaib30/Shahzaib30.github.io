@@ -17,7 +17,7 @@ Shahzaib is an AI Engineer and Full Stack Web Developer with hands-on experience
 Languages: Python, SQL, JavaScript, TypeScript, C++, Bash.
 AI & Machine Learning: Machine Learning, Deep Learning, NLP, Computer Vision, PyTorch, scikit-learn, Hugging Face, OpenCV, Transformers.
 LLM & Fine-tuning: LoRA, QLoRA, PEFT, bitsandbytes, LangChain, LangGraph, LangSmith, RAG, Embeddings, Vector Search, Prompt Engineering, Ollama, OpenAI API.
-Agentic AI & Infrastructure: Multi-Agent Systems, Consensus Engines, Human-in-the-Loop workflows, Redis, ChromaDB, PgVector, FAISS, OpenTelemetry.
+Agentic AI & Infrastructure: Multi-Agent Systems, Consensus Engines, Human-in-the-Loop workflows, Redis, ChromaDB, PgVector, FAISS, BM25 Hybrid Search, n8n, OpenTelemetry, Prometheus, Grafana.
 Backend & Tools: FastAPI, REST APIs, PostgreSQL, Docker, Git, Linux, React, Next.js.
 Frontend: React, Next.js, JavaScript, TypeScript, HTML5, CSS3, WordPress, Elementor.
 Other: Technical SEO, Google Analytics, Figma, Canva, Agile Methodologies.
@@ -38,27 +38,35 @@ Conducted rigorous exploratory data analysis on datasets containing 10,000+ reco
 
 5.0 KEY PROJECTS
 
-5.1 MADE — Multi-Agent Decision Engine (2026)
-Tools: LangGraph, LangSmith, FastAPI, Next.js, Redis, ChromaDB, PostgreSQL. Repo: github.com/Shahzaib30/Multi-Agent-Decision-Engine
-Architected a production-grade multi-agent system with 5 specialist agents (Research, Reasoning, Critic, Risk, Synthesizer) orchestrated via a LangGraph state machine with crash recovery, enabling automated financial analysis, competitive intelligence, and customer support workflows. Engineered a custom consensus engine using structured debate protocols and confidence-weighted voting, backed by three-tier memory (Redis, ChromaDB, PostgreSQL), human-in-the-loop Slack gating, and full observability via OpenTelemetry, Prometheus, and Grafana.
+5.1 InstaCann — Cannabis Discovery Directory (2026, Live)
+Tools: Next.js, TypeScript, FastAPI, PostgreSQL, Redis, Docker, Prometheus, Grafana. Live at instacann.com.
+Production directory platform for discovering cannabis dispensaries, deals, and products by location, with a tiered listing system (Free, Pro, Professional) for business owners. Decoupled Next.js/TypeScript frontend and FastAPI backend, containerized with Docker and monitored with Prometheus/Grafana. This is Shahzaib's flagship live product.
 
-5.2 Enterprise RAG System & Lead-Generation AI Agent (Jan 2026 – Present)
+5.2 MADE — Multi-Agent Decision Engine (In Progress, 2026)
+Tools: LangGraph, LangSmith, FastAPI, Next.js, Redis, ChromaDB, PostgreSQL, E2B Sandbox. Repo: github.com/Shahzaib30/Multi-Agent-Decision-Engine
+A multi-agent decision system under active development — 5 specialist agents (Research, Reasoning, Critic, Risk, Synthesizer) coordinated via a LangGraph state machine with crash recovery, a confidence-weighted consensus engine, three-tier memory (Redis, ChromaDB, PostgreSQL), human-in-the-loop Slack gating, and full observability via OpenTelemetry, Prometheus, and Grafana. Backend orchestration and consensus engine are implemented; the Next.js live-streaming dashboard is the current focus.
+
+5.3 Enterprise RAG System & Lead-Generation AI Agent (Jan 2026 – Present)
 Tools: FastAPI, LangGraph, LangChain, PostgreSQL, PgVector, React. Repo: github.com/Shahzaib30/advanced-rag-assistant
 Built a production RAG chatbot with vector search and agentic LangGraph workflows handling 100+ weekly queries with sub-second response times, plus a React admin dashboard and embeddable widget that automatically extracts, validates, and securely stores 50+ leads per month into PostgreSQL. This exact system also powers the chat widget on Shahzaib's personal portfolio site.
 
-5.3 QLoRA Fine-tuned LLM with RAG Hybrid Integration (2026)
-Tools: Python, QLoRA, PEFT, Hugging Face, LangChain, FastAPI. Repo: github.com/Shahzaib30/qlora-rag-chatbot
-Fine-tuned Mistral-7B using QLoRA with 4-bit quantization, cutting GPU memory usage by 75 percent, then benchmarked RAG-only, fine-tune-only, and hybrid configurations — the hybrid approach achieved the highest domain accuracy.
+5.4 AI Support Agent — Multi-Channel RAG with Human-in-the-Loop (2026)
+Tools: FastAPI, FAISS, BM25, PostgreSQL, Redis, n8n, Next.js, Docker, Prometheus, Grafana. Repo: github.com/Shahzaib30/ai-support-agent
+Built a channel-agnostic support pipeline serving Web, Discord, WhatsApp, and Telegram from one shared agent. Implemented a 4-stage hybrid RAG pipeline (query condensation, FAISS dense + BM25 sparse search fused via RRF, cross-encoder reranking) and an explicit conversation state machine that escalates low-confidence or frustrated conversations to a human over Slack, relaying replies back to the customer via n8n. Fully containerized across 8 Docker services with Prometheus/Grafana monitoring.
 
-5.4 TAVI Planning System Using Deep Learning (Sep 2025 – Jun 2026)
-Tools: Deep Learning, nnUNet, 3D Segmentation, Medical Imaging, PyTorch, Hugging Face.
-Trained a 3D nnUNet segmentation model on CTA scans achieving 85%+ Dice score, built 3D valve-fitting visualizations, and generated AI-assisted diagnostic reports for cardiac surgical planning.
+5.5 QLoRA Fine-tuned LLM with RAG Hybrid Integration (In Progress, 2026)
+Tools: Python, PyTorch, QLoRA, PEFT, TRL, Hugging Face, LangChain, ChromaDB, RAGAS, FastAPI. Repo: github.com/Shahzaib30/QLora-Rag-Chatbot
+Fine-tuned Mistral-7B-Instruct on 100k real doctor-patient conversations (ChatDoctor-HealthCareMagic-100k) using QLoRA 4-bit quantization, cutting GPU memory usage by roughly 75 percent, then built a benchmark harness comparing the base model, the fine-tuned model, and a fine-tuned+RAG hybrid. Initial results: fine-tuning alone gave the largest accuracy jump (ROUGE-L 0.135 to 0.188, BERTScore F1 0.835 to 0.852); adding RAG on top added latency without a clear further gain on this eval set. Benchmarking is still being extended.
 
-5.5 Full-Stack Directory Website (In Progress, 2026)
-Tools: Next.js, React, FastAPI, PostgreSQL, AWS.
-Scalable business/listing directory platform with a Next.js frontend and a FastAPI backend, being deployed on an AWS server.
+5.6 TAVI-Net — AI Pre-Operative Planning for TAVI (2026)
+Tools: PyTorch, MONAI, 3D U-Net, React Three Fiber, Ollama, FastAPI, Docker. Repo: github.com/Shahzaib30/tavi-planning-system
+Uploads a raw cardiac CT scan and automatically segments the aorta, aortic root, valve, left ventricle, and annulus with a 3D U-Net trained on MONAI (mean Dice 0.849 across 5 structures on held-out test scans), reconstructs an interactive 3D mesh viewable in-browser via React Three Fiber, and produces an LLM-assisted clinical review using a local Ollama model (phi3:mini) with a deterministic fallback. Research/educational project — not a certified medical device.
 
-5.6 Personal Portfolio Website (2026)
+5.7 RankSpotter — Real-time SERP Tracker (2025, Live)
+Tools: React, Flask, PostgreSQL, Supabase. Live at rankspotter.com.
+Always-on keyword rank monitoring platform with a distributed headless-scraping worker pool, anomaly alerts, and a React analytics dashboard. Tracks over 12,000 keywords with Supabase-backed multi-tenant access control.
+
+5.8 Personal Portfolio Website (2026)
 Tools: React, JavaScript, CSS. Live at shahzaib30.github.io
 Designed and developed the responsive personal portfolio website you are currently chatting on, showcasing full-stack and AI projects, technical capabilities, and freelance client work.
 
@@ -68,10 +76,9 @@ Graduated: May 2026. GPA: 3.4 / 4.0.
 Relevant coursework: Machine Learning, Deep Learning, Computer Vision, NLP, Reinforcement Learning, Database Systems, Data Structures, Object-Oriented Programming, Probability and Statistics.
 
 7.0 CVs / RESUMES
-Shahzaib maintains two role-specific resumes, both downloadable from the portfolio site:
-- AI Engineer CV — focused on machine learning, LLM fine-tuning, multi-agent systems, and RAG work.
-- Full Stack Web Developer CV — focused on React, Next.js, FastAPI, and freelance web delivery.
-If a visitor asks for a resume or CV, point them to the "Download CV" buttons on the portfolio homepage, or offer to be contacted directly via email for a copy.
+Shahzaib maintains a single, unified resume covering both disciplines, downloadable from the portfolio site:
+- Full-Stack AI Engineer CV — covers machine learning, LLM fine-tuning, multi-agent systems, RAG work, and full-stack web development (React, Next.js, FastAPI).
+If a visitor asks for a resume or CV, point them to the "Download CV — Full Stack AI Engineer" button on the portfolio homepage, or offer to be contacted directly via email for a copy.
 
 8.0 HOW TO WORK WITH SHAHZAIB
 Shahzaib is available for freelance and full-time opportunities in AI engineering (RAG systems, multi-agent systems, LLM fine-tuning, NLP) and full-stack web development (React, Next.js, FastAPI). He can be reached at shahzaibshafique.dev@gmail.com or via the contact links on his portfolio (LinkedIn, GitHub, Upwork, Fiverr).

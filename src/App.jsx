@@ -1,23 +1,12 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, Route, Routes, useLocation, useParams } from 'react-router-dom'
 import { motion as Motion } from 'framer-motion'
-import aiEngineerCv from './assets/Shahzaib-Shafique_AI-Engineer.pdf'
-import webDeveloperCv from './assets/Shahzaib-Shafique_Web-Developer.pdf'
+import fullStackAiEngineerCv from './assets/Full-Stack-AI-Engineer_Shahzaib-Shafique.pdf'
 import nlpCertificateImage from './assets/nlpcertificate.png'
 import dataScienceCertificate from './assets/datascience.pdf'
 import ScrollToTop from './scrollToTop.jsx'
 import Dashboard from './components/dashboard'
-import ChatWidget from './components/ChatWidget'; 
-import tavi1 from './assets/images/Tavi procedure project 1.jpeg'
-import tavi2 from './assets/images/Tavi procedure project 4.jpeg'
-
-import grant1 from './assets/images/NEXT JS 1.png'
-import next3 from './assets/images/NEXT JS 3.png'
-import deep1 from './assets/images/Deep Neural Network.png'
-import deep_transformers from './assets/images/Deep Neural Network transformers 1.png'
-import mine2 from './assets/images/mine 2.png'
-import mine4 from './assets/images/mine 4.png'
-import rag_chat from './assets/images/RAG AGENT/Chat.png'
+import ChatWidget from './components/ChatWidget';
 import projects from './data/projectsData.js'
 
 const headerLinks = [
@@ -62,6 +51,7 @@ const skills = [
       'Fine-tuning (LoRA, QLoRA, PEFT)',
       'Embeddings',
       'Vector Databases',
+      'Hybrid Search (BM25)',
       'Prompt Engineering',
       'Model Deployment',
     ],
@@ -80,6 +70,8 @@ const skills = [
       'PG Vector',
       'ChromaDB',
       'FAISS',
+      'n8n',
+      'Prometheus & Grafana',
       'VS Code & Jupyter',
 
     ],
@@ -247,9 +239,35 @@ function ProjectCard({ project, index = 0, compact = false }) {
 }
 
 function CardContent({ project, comingSoon = false }) {
+  const gallery = Array.isArray(project.images) && project.images.length > 0
+    ? project.images
+    : project.image
+      ? [project.image]
+      : []
+  const cover = gallery[0]
+
   return (
     <>
       <span className="absolute -left-[33px] top-8 hidden h-3 w-3 items-center justify-center rounded-full border border-emerald-300/60 bg-emerald-300/20 sm:flex" />
+      {cover && (
+        <div className="relative -mx-6 -mt-6 mb-5 h-48 overflow-hidden rounded-t-3xl sm:h-56">
+          <img
+            src={cover}
+            alt={project.imageAlt ?? `${project.title} preview`}
+            className="h-full w-full object-cover"
+            loading="lazy"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/0" />
+          {gallery.length > 1 && (
+            <span className="absolute bottom-3 right-3 inline-flex items-center gap-1 rounded-full border border-white/10 bg-black/60 px-2.5 py-1 text-xs font-medium text-white backdrop-blur">
+              <svg viewBox="0 0 20 20" fill="currentColor" className="h-3.5 w-3.5" aria-hidden="true">
+                <path d="M4 5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H4Zm10.5 2.5 3.5-2v9l-3.5-2v-5Z" />
+              </svg>
+              {gallery.length}
+            </span>
+          )}
+        </div>
+      )}
       <div className="flex flex-wrap items-center gap-3 text-sm text-gray-400">
         <p className="font-mono tracking-[0.2em] text-[#64ffda]">{project.year}</p>
         <span className={`rounded-full border px-3 py-1 text-xs font-semibold ${statusStyles[project.status] ?? ''}`}>
@@ -333,21 +351,11 @@ function HeroSection() {
       </div>
       <div className="flex flex-wrap gap-3 text-sm">
         <a
-          href={aiEngineerCv}
-          download="Shahzaib_Shafique_AI_Engineer_CV.pdf"
+          href={fullStackAiEngineerCv}
+          download="Full-Stack-AI-Engineer_Shahzaib-Shafique.pdf"
           className="inline-flex items-center gap-2 rounded-full border border-[#64ffda]/70 bg-[#64ffda]/10 px-5 py-2 font-semibold text-[#64ffda] shadow-[0_10px_30px_rgba(100,255,218,0.25)] transition hover:-translate-y-0.5 hover:bg-[#64ffda]/20"
         >
-          Download CV — AI Engineer
-          <span aria-hidden="true" className="text-base">
-            ↓
-          </span>
-        </a>
-        <a
-          href={webDeveloperCv}
-          download="Shahzaib_Shafique_Web_Developer_CV.pdf"
-          className="inline-flex items-center gap-2 rounded-full border border-[#64ffda]/70 bg-[#64ffda]/10 px-5 py-2 font-semibold text-[#64ffda] shadow-[0_10px_30px_rgba(100,255,218,0.25)] transition hover:-translate-y-0.5 hover:bg-[#64ffda]/20"
-        >
-          Download CV — Web Developer
+          Download CV — Full Stack AI Engineer
           <span aria-hidden="true" className="text-base">
             ↓
           </span>
@@ -521,34 +529,175 @@ function ProjectsPage() {
   )
 }
 
-function ProjectDetailPage() {
-  const { slug } = useParams()
-  const project = slug ? projectLookup[slug] : null
-  const [selectedImage, setSelectedImage] = useState(null)
+function NavArrow({ direction, onClick, className = '' }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={direction === 'prev' ? 'Previous image' : 'Next image'}
+      className={`inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/50 text-white backdrop-blur transition hover:border-[#64ffda]/60 hover:bg-black/70 hover:text-[#64ffda] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#64ffda] ${className}`}
+    >
+      <svg viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5" aria-hidden="true">
+        {direction === 'prev' ? (
+          <path fillRule="evenodd" d="M12.03 4.47a.75.75 0 0 1 0 1.06L7.56 10l4.47 4.47a.75.75 0 1 1-1.06 1.06l-5-5a.75.75 0 0 1 0-1.06l5-5a.75.75 0 0 1 1.06 0Z" clipRule="evenodd" />
+        ) : (
+          <path fillRule="evenodd" d="M7.97 4.47a.75.75 0 0 1 1.06 0l5 5a.75.75 0 0 1 0 1.06l-5 5a.75.75 0 1 1-1.06-1.06L12.44 10 7.97 5.53a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
+        )}
+      </svg>
+    </button>
+  )
+}
+
+function ImageCarousel({ images, alt, title }) {
+  const [index, setIndex] = useState(0)
+  const [lightboxOpen, setLightboxOpen] = useState(false)
+  const hasMultiple = images.length > 1
+
+  const goPrev = useCallback(
+    () => setIndex((current) => (current - 1 + images.length) % images.length),
+    [images.length],
+  )
+  const goNext = useCallback(
+    () => setIndex((current) => (current + 1) % images.length),
+    [images.length],
+  )
 
   useEffect(() => {
-    if (!selectedImage) return undefined
+    if (!lightboxOpen) return undefined
 
     const handleKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        setSelectedImage(null)
-      }
+      if (event.key === 'Escape') setLightboxOpen(false)
+      if (event.key === 'ArrowLeft') goPrev()
+      if (event.key === 'ArrowRight') goNext()
     }
 
     window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [selectedImage])
-
-  useEffect(() => {
-    if (!selectedImage) return undefined
-
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
 
     return () => {
+      window.removeEventListener('keydown', handleKeyDown)
       document.body.style.overflow = previousOverflow
     }
-  }, [selectedImage])
+  }, [lightboxOpen, goPrev, goNext])
+
+  if (images.length === 0) return null
+
+  return (
+    <div className="mt-8">
+      <div className="group relative overflow-hidden rounded-3xl border border-white/5 bg-white/5">
+        <button
+          type="button"
+          onClick={() => setLightboxOpen(true)}
+          className="block aspect-video w-full cursor-zoom-in focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#64ffda]"
+          aria-label="Open full-size image"
+        >
+          <img
+            key={images[index]}
+            src={images[index]}
+            alt={alt ? `${alt} (${index + 1} of ${images.length})` : `${title} screenshot ${index + 1}`}
+            className="h-full w-full object-cover"
+            loading="lazy"
+          />
+        </button>
+        {hasMultiple && (
+          <>
+            <NavArrow direction="prev" onClick={goPrev} className="absolute left-3 top-1/2 -translate-y-1/2 opacity-0 transition group-hover:opacity-100" />
+            <NavArrow direction="next" onClick={goNext} className="absolute right-3 top-1/2 -translate-y-1/2 opacity-0 transition group-hover:opacity-100" />
+            <span className="absolute bottom-3 right-3 rounded-full border border-white/10 bg-black/60 px-2.5 py-1 text-xs font-medium text-white backdrop-blur">
+              {index + 1} / {images.length}
+            </span>
+          </>
+        )}
+      </div>
+      {hasMultiple && (
+        <div className="mt-3 flex gap-2 overflow-x-auto pb-1">
+          {images.map((src, idx) => (
+            <button
+              key={src}
+              type="button"
+              onClick={() => setIndex(idx)}
+              aria-label={`View image ${idx + 1}`}
+              aria-current={idx === index}
+              className={`h-16 w-24 flex-shrink-0 overflow-hidden rounded-xl border transition ${
+                idx === index
+                  ? 'border-[#64ffda] opacity-100'
+                  : 'border-white/10 opacity-60 hover:opacity-100'
+              }`}
+            >
+              <img src={src} alt="" className="h-full w-full object-cover" loading="lazy" />
+            </button>
+          ))}
+        </div>
+      )}
+
+      {lightboxOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 px-4 py-6 backdrop-blur-sm"
+          onClick={() => setLightboxOpen(false)}
+          role="presentation"
+        >
+          <div
+            className="relative w-full max-w-5xl"
+            onClick={(event) => event.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Project image preview"
+          >
+            <button
+              type="button"
+              onClick={() => setLightboxOpen(false)}
+              className="absolute -right-3 -top-3 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/80 text-white transition hover:border-[#64ffda] hover:text-[#64ffda]"
+              aria-label="Close image preview"
+            >
+              ×
+            </button>
+            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-black/90 shadow-[0_30px_120px_rgba(0,0,0,0.7)]">
+              <img
+                src={images[index]}
+                alt={alt ? `${alt} (${index + 1} of ${images.length})` : `${title} screenshot ${index + 1}`}
+                className="max-h-[80vh] w-full object-contain"
+              />
+              {hasMultiple && (
+                <>
+                  <NavArrow direction="prev" onClick={goPrev} className="absolute left-3 top-1/2 -translate-y-1/2" />
+                  <NavArrow direction="next" onClick={goNext} className="absolute right-3 top-1/2 -translate-y-1/2" />
+                  <span className="absolute bottom-3 right-3 rounded-full border border-white/10 bg-black/60 px-2.5 py-1 text-xs font-medium text-white backdrop-blur">
+                    {index + 1} / {images.length}
+                  </span>
+                </>
+              )}
+            </div>
+            {hasMultiple && (
+              <div className="mt-3 flex justify-center gap-2 overflow-x-auto pb-1">
+                {images.map((src, idx) => (
+                  <button
+                    key={src}
+                    type="button"
+                    onClick={() => setIndex(idx)}
+                    aria-label={`View image ${idx + 1}`}
+                    aria-current={idx === index}
+                    className={`h-14 w-20 flex-shrink-0 overflow-hidden rounded-lg border transition ${
+                      idx === index
+                        ? 'border-[#64ffda] opacity-100'
+                        : 'border-white/10 opacity-60 hover:opacity-100'
+                    }`}
+                  >
+                    <img src={src} alt="" className="h-full w-full object-cover" loading="lazy" />
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+function ProjectDetailPage() {
+  const { slug } = useParams()
+  const project = slug ? projectLookup[slug] : null
 
   if (!project) {
     return (
@@ -587,12 +736,11 @@ function ProjectDetailPage() {
         ].filter((section) => Boolean(section.body))
       : []
 
-  const imageGallery = (Array.isArray(project.images) && project.images.length > 0
+  const imageGallery = Array.isArray(project.images) && project.images.length > 0
     ? project.images
     : image
       ? [image]
       : []
-  ).slice(0, 2)
 
   return (
     <Motion.section className="py-10" initial="hidden" animate="visible" variants={fadeIn}>
@@ -604,25 +752,7 @@ function ProjectDetailPage() {
           {project.status}
         </span>
       </div>
-      {imageGallery.length > 0 && (
-        <div className={`mt-8 grid gap-4 ${imageGallery.length > 1 ? 'md:grid-cols-2' : 'grid-cols-1'}`}>
-          {imageGallery.map((src, idx) => (
-            <button
-              key={`${project.slug}-image-${idx}`}
-              type="button"
-              onClick={() => setSelectedImage(src)}
-              className="overflow-hidden rounded-3xl border border-white/5 bg-white/5 transition hover:-translate-y-0.5 hover:border-[#64ffda]/30 hover:shadow-[0_20px_60px_rgba(100,255,218,0.08)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#64ffda]"
-            >
-              <img
-                src={src}
-                alt={imageAlt ? `${imageAlt} (${idx + 1})` : `${project.title} screenshot ${idx + 1}`}
-                className="h-full w-full object-cover"
-                loading="lazy"
-              />
-            </button>
-          ))}
-        </div>
-      )}
+      <ImageCarousel images={imageGallery} alt={imageAlt} title={project.title} />
       <p className="mt-8 text-lg text-gray-200">{summary ?? project.description}</p>
       <div className="mt-6 flex flex-wrap gap-2 text-xs">
         {project.tools.map((tool) => (
@@ -657,38 +787,6 @@ function ProjectDetailPage() {
         )}
       </div>
 
-      {selectedImage && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-4 py-6 backdrop-blur-sm"
-          onClick={() => setSelectedImage(null)}
-          role="presentation"
-        >
-          <div
-            className="relative w-[70vw] max-w-5xl"
-            style={{ maxHeight: '70vh' }}
-            onClick={(event) => event.stopPropagation()}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Project image preview"
-          >
-            <button
-              type="button"
-              onClick={() => setSelectedImage(null)}
-              className="absolute -right-3 -top-3 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-black/80 text-white transition hover:border-[#64ffda] hover:text-[#64ffda]"
-              aria-label="Close image preview"
-            >
-              ×
-            </button>
-            <div className="overflow-hidden rounded-3xl border border-white/10 bg-black/90 shadow-[0_30px_120px_rgba(0,0,0,0.7)]">
-              <img
-                src={selectedImage}
-                alt={imageAlt ?? project.title}
-                className="max-h-[70vh] w-full object-contain"
-              />
-            </div>
-          </div>
-        </div>
-      )}
       <div className="mt-10 flex flex-wrap gap-3 text-sm">
         {github && (
           <a
